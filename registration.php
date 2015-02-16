@@ -16,7 +16,7 @@ $( document ).ready(function() {
         <div class="row-fluid span12">
             <div class="span5 form-input-container">
 
-                <label>Име:* <span class="is-teacher pull-right"><input type="checkbox" id="teacher" name="teacher">Преподавател</span></label>
+                <label>Име:*</label>
                 <input type="text" id="name" name="username">
                 <span class="errorloc"></span>
             </div>

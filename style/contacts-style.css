@@ -2,7 +2,7 @@
  {
 	width: 770px;
 	text-align: center;
-	color: white;
+	color: #017391 !important;
 	font-weight: 700;
  }
   #contacts_form input
@@ -10,7 +10,7 @@
 	padding: 5px;
 	border-radius: 5px;
 	width: 145px;
-	background-color: #BE4B64;
+	background-color: #fff;
 	border:0;
  }
  #contacts_form label
@@ -33,7 +33,9 @@
 	width: 92%;
 	margin-left: -41px;
 	height: 100px;
-	background-color: #BE4B64;
+	background-color: #fff;
+	border: none;
+  border-radius: 5px;
 }
  .contacts_inputs{
  	display: inline-block;

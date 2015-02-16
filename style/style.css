@@ -9,15 +9,9 @@ body, header, h1, h2, h3, footer, section, article, nav, ul, ol, table, div, p, 
 }
 
 
-
-body 
-{
-	background-color: #fff;
-	/*background-image:url("../images/backgound1.png");*/
-	background-attachment: fixed;
-	background-repeat: no-repeat;
-	text-align: center;
-	width:100%;
+body {
+	color: #4d4d4d;
+	background: #f9f9f9;
 }
 
 body.middle {
@@ -69,29 +63,32 @@ ul>li>a
 {
 	text-decoration: none;
 	padding-right: 25px;
-	background-color: #5A0013;
+	background-color: #f0f0f0;
 	padding-left: 25px;
 	padding-top: 20px;
 	padding-bottom: 23px;
 	border: 0px solid #7e0e26;
 	border-radius: 0px;
 	font-size: 1.2em;
-	color: #fff;
+	color:#017391 !important;
 	font-weight: bold;
 }
 nav#menu>ul>li:hover>a
 {
-	color: #fff;
+	color: #017391 !important;
 }
 nav#menu, nav#menu>ul {
 	height: 65px;
-	background-color: rgba(126, 14, 38,0.9);
 	margin-left: 0px;
 	margin-bottom: 20px;
+	background-color: #7b8490;
 }
 nav#menu>ul>li>a:hover
 {
-	
+	height: 65px;
+	margin-left: 0px;
+	margin-bottom: 20px;
+	background-color: #7b8490;
 }
 #menu .subMenu
 {
@@ -145,25 +142,50 @@ aside
 	text-align: right;
 }
 #login input[type="submit"] {
-	background-color: #35000B;
+	background-color: #7b8490;
 	border: 0;
 	color: #fff;
-	padding: 5px;
+	padding: 1px;
 	cursor: pointer;
 	float: left;
 	width: 50px;
 	margin-left: 8%;
-	margin-top: 63%;
+	margin-top: 1px;
 }
 #login input[type="text"], #login input[type="password"] {
-	background-color: #BE4B64;
-	padding: 5px;
+	background-color: #fff;
+	padding: 0px;
 	cursor: pointer;
-	border: 2px solid #5A0013;
+	border: 2px solid #7b8490;
 	color: #5A0013;
-	margin-bottom: 2px;
+	margin-bottom: 0px;
 	width: 140px;
-	margin-left: 5px;
+	margin-left: 2px;
+}
+.header_a {
+	background-color: #7b8490;
+	border: 0;
+	color: #fff;
+	padding: 1px;
+	cursor: pointer;
+	float: left;
+	width: 88px;
+	margin-top: 1px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.header_a:hover {
+	background-color: #7b8490;
+	border: 0;
+	color: #fff;
+	padding: 1px;
+	cursor: pointer;
+	float: left;
+	width: 88px;
+	margin-top: 1px;
+	text-align: center;
+	text-decoration: none;
 }
  /* 
 ------- End Header section--------
@@ -185,7 +207,7 @@ aside
 {
 	border: 2px solid black;
 	width: 700px;
-	background-color: #7e0e26;
+	background-color: rgba(205, 205, 205, 0.90);;
 	color: #fff;
 	border-color: #fff;
 }
@@ -201,7 +223,7 @@ aside
 	padding: 15px;
 	border: 0px solid black;
 	margin: auto;
-	background-color: rgba(126, 14, 38,0.9);
+	background-color: #f9f9f9;
 	min-height: 522px;
 	margin-bottom: 20px;
 }
@@ -313,7 +335,7 @@ input#userName-input {
  */
  #registrationForm
  {
-	color: white;
+	color: #017391;
  }
   #registrationForm input[type="text"], #registrationForm input[type="password"]
   {
@@ -443,7 +465,7 @@ input#userName-input {
 	color: #fff;
 	padding: 5px;
 	cursor: pointer;
-	background-color: #5A0013;
+	background-color: rgba(205, 205, 205, 0.90);
 	border: 0px solid #7e0e26;
 	border-radius: 0px;
 	font-size: 1.2em;
@@ -453,7 +475,8 @@ input#userName-input {
 }
 
 #registerButton:hover{
-	background-color: #BE4B64;
+	/*background-color: #f0f0f0;*/
+	color:#017391;
 }
 
 #registrationForm > h2 {
@@ -532,7 +555,7 @@ a#login-trigger {
 
 nav#menu>ul>li>a:hover {
 	text-decoration: none;
-	background-color: #BE4B64;
+	background-color: #017391;
 }
 
 .no-left-margin{
@@ -605,7 +628,7 @@ color: #fff !important;
 }
 
 table.phpc-main.phpc-calendar > tbody > tr > td, th {
-border: 1px solid #BE4B64;
+border: 1px solid rgba(205, 205, 205, 0.90);;
 }
 
 .phpc-date.ui-state-default.ui-widget {
@@ -780,4 +803,8 @@ span.is-teacher.pull-right {
 	color: white;
 	font-weight: bold;
 	margin-top: -20px;
+}
+a:hover {
+background-color: #8a9aa1 !important;
+color:white;
 }

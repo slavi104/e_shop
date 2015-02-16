@@ -19,7 +19,8 @@
 	 	var open_menu = $('#nav_trigger_input').val();
 
 	 	if (open_menu != undefined && open_menu != '') {
-	 		$('#nav_' + open_menu).css('background-color', '#9E2942');
+	 		$('#nav_' + open_menu).css('background-color', '#7b8490');
+	 		$('#nav_' + open_menu).css('color', '#fff !important');
 	 	};
 	 });
 	</script>

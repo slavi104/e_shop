@@ -89,6 +89,35 @@
     </head>
     <body class="middle">
         <div class="row-fluid span12 big-container">
+          <?php
+              if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
+                  echo '<div class="span12 pull-left" id="login" style="color:black;">';
+                  echo '<span class="span5" ></span>';
+                  echo '<span class="span1"><a class="header_a" href="'.$root.'profile.php"> Профил </a></span>';
+                  echo '<span class="span1"><a class="header_a" href="'.$root.'logout.php">'.$logout.'</a></span>';
+                  echo '</div>';
+
+              } else {
+                  echo '<div class="span12 pull-left" id="login" style="color:black;">
+                            <form method="POST" class="span12 row-fluid" style="">
+                              <span class="span5">
+                                <span class="span6">
+                                  <label>Имейл:</label><input type="text" id="emaillog" name="emaillog">
+                                </span>
+                                <span class="span6">
+                                  <label>Парола:</label><input type="password" id="pass" name="pass">
+                                </span>
+                              </span>
+                              <span class="span1">
+                                <input type="submit" value="Вход">
+                              </span>
+                              <span class="span1">
+                                <a class="header_a" href="'.$root.'registration.php">'.$register.'</a>
+                              </span>
+                            </form>
+                          </div>';
+              }
+          ?>
           <div class="row-fluid span12" id="headerWrapper">
             <div class="span3">
                <img class="span12 row-fluid" style="margin-top: 10px;" src=""> 
@@ -97,33 +126,7 @@
               <img class="span12 row-fluid" style="height:118px" src="">
             </div>
             <div class="span3">
-              <img class="span12 row-fluid" id="right-logo" style="margin-top: 10px;" src=""> 
-              <div id="login-aside" style='display:none'>
-                  <!-- <span> TODO fb</span>
-                  <span> TODO google+</span> -->
-                  <?php
-                      if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
-                          
-                      } else {
-                          echo '<div class="span12 row-fluid" id="login" style="color:black;">
-                                    <form method="POST" class="span12 row-fluid" style="margin-top: 12% !important; width: 272px; text-align: right; ">
-                                      <span class="span9">
-                                        <div>
-                                          <label>Имейл:</label><input type="text" id="emaillog" name="emaillog">
-                                        </div>
-                                        <div>
-                                          <label>Парола:</label><input type="password" id="pass" name="pass">
-                                        </div>
-                                      </span>
-                                      <span class="span3">
-                                        <input type="submit" value="Вход">
-                                      </span>
-                                    </form>
-                                </div>';
-                      }
-                  ?>
-                
-              </div>
+              <img class="span12 row-fluid" style="margin-top: 10px;" src=""> 
             </div>
           </div>
             <nav class="row-fluid span12" id="menu">
@@ -195,22 +198,8 @@
                     });
                     </script>
                   </li>
-                    <?php 
-                        if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {   
-                            echo '<li class="nav-buttons btn pull-right"><a href="'.$root.'logout.php">'.$logout.'</a></li>';
-                            echo '<li class="nav-buttons btn pull-right"><a href="'.$root.'profile.php"> Профил </a></li>';
-                            
-                           /* echo '<li class="nav-buttons btn pull-right"><a href="'.$root.'changeProfile.php">Промяна на профила</a></li>';*/
-                            
-                            
-                            
-                        } else {
-                            echo '<li class="nav-buttons btn pull-right"><a href="'.$root.'registration.php">'.$register.'</a></li>';
-                        }
-                    ?>
-                    <?php if(!isset($_SESSION['isLogged']) || !$_SESSION['isLogged'] == true){ ?>
-                        <li class="nav-buttons btn pull-right"><a href='#' data-open='0' id='login-trigger'><?php echo 'Вход'?></a></li>
-                    <?php }?>
+                    
+                    
                     <?php 
                       // if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
                       //     if (fSession::get('is_admin')) {
@@ -261,7 +250,7 @@
         <!-- Content Sections -->
           <div class="row-fluid span12 big-container">
             <!-- Left Side Vertical Bar -->
-            <div class="span4 pull-left left-menu" style="background-color: rgba(126, 14, 38,0.9); margin-bottom:25px;">
+            <div class="span4 pull-left left-menu" style="background-color: rgba(205, 205, 205, 0.90);; margin-bottom:25px;">
               <ul class="nav nav-list">
                 <li class="nav-buttons btn"><a data-id="index" id="nav_index" href="index.php">Начало</a></li>
                 <!-- <li class="nav-buttons btn"><a data-id="news"  id="nav_news" href="news.php">Новини</a></li> -->
