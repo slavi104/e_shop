@@ -16,6 +16,7 @@
 					<label name='last_name' for='last_name' id="lastName">Фамилия:</label>
 					<input type='text' name='last_name' class="input_styles" size='20'/>
 				</div>
+				<br><br>
 				<div>
 					<label style="float:left; margin-left:10px;">Въпрос/Препоръка:</label>
 				</div>

@@ -11,7 +11,6 @@
 	border-radius: 5px;
 	width: 145px;
 	background-color: #fff;
-	border:0;
  }
  #contacts_form label
  {
@@ -34,7 +33,6 @@
 	margin-left: -41px;
 	height: 100px;
 	background-color: #fff;
-	border: none;
   border-radius: 5px;
 }
  .contacts_inputs{
