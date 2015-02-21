@@ -66,7 +66,7 @@
 ?>
 <html>
     <head>
-        <title>-----</title>
+        <title>E - shop</title>
         <link type="text/css" rel="stylesheet" href=<?php echo $root."style/style.css"?>>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -250,7 +250,7 @@
         <!-- Content Sections -->
           <div class="row-fluid span12 big-container">
             <!-- Left Side Vertical Bar -->
-            <div class="span4 pull-left left-menu" style="background-color: rgba(205, 205, 205, 0.90);; margin-bottom:25px;">
+            <div class="span4 pull-left left-menu" style="background-color: #f9f9f9; margin-bottom:25px;">
               <ul class="nav nav-list">
                 <li class="nav-buttons btn"><a data-id="index" id="nav_index" href="index.php">Начало</a></li>
                 <!-- <li class="nav-buttons btn"><a data-id="news"  id="nav_news" href="news.php">Новини</a></li> -->

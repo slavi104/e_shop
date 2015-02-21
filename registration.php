@@ -11,7 +11,7 @@ $( document ).ready(function() {
 </script>
 <div id="registrationForm">
     <h2 class="span12 row-fluid">Регистрация:</h2>
-    <form method="POST" class="row-fluid span12" id="registrationForm">
+    <form method="POST" class="row-fluid span12" id="">
 
         <div class="row-fluid span12">
             <div class="span5 form-input-container">

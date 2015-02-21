@@ -29,7 +29,7 @@ body.middle {
 } 
 .currentPage
 {
-	color: #7e0e26;
+	/*color: #7e0e26;*/
 	font-size: 1.2em;
 }
 
@@ -67,11 +67,12 @@ ul>li>a
 	padding-left: 25px;
 	padding-top: 20px;
 	padding-bottom: 23px;
-	border: 0px solid #7e0e26;
+	/*border: 0px solid #7e0e26;*/
 	border-radius: 0px;
 	font-size: 1.2em;
 	color:#017391 !important;
 	font-weight: bold;
+
 }
 nav#menu>ul>li:hover>a
 {
@@ -88,7 +89,7 @@ nav#menu>ul>li>a:hover
 	height: 65px;
 	margin-left: 0px;
 	margin-bottom: 20px;
-	background-color: #7b8490;
+	background-color: #7b8490 !important;
 }
 #menu .subMenu
 {
@@ -121,7 +122,7 @@ nav#menu>ul>li>a:hover
 
 #menu .subMenu li:hover a
 {
-	color: #7e0e26;
+	/*color: #7e0e26;*/
 }
 
 div#search_container {
@@ -335,7 +336,7 @@ input#userName-input {
  */
  #registrationForm
  {
-	color: #017391;
+	color: #017391 !important;
  }
   #registrationForm input[type="text"], #registrationForm input[type="password"]
   {
@@ -369,7 +370,7 @@ input#userName-input {
  */
  #errorloc
  {
-	color: #7e0e26;
+	/*color: #7e0e26;*/
  }
  
  /* 
@@ -377,7 +378,7 @@ input#userName-input {
  */
 #request_holder{
 	width: 185px;
-	background-color: #7e0e26;
+	/*background-color: #7e0e26;*/
 	opacity: 0.7;
 }
 #request_holder:hover{
@@ -398,7 +399,7 @@ input#userName-input {
  }
   #contentGame>h1
   {
-	color: #7e0e26;
+	/*color: #7e0e26;*/
 	padding-top: 20px;
 	margin-bottom: 20px;
  }
@@ -453,7 +454,7 @@ input#userName-input {
 ------- End Test section--------
  */
 .h2-titles{
-	background-color: #7e0e26;
+	/*background-color: #7e0e26;*/
 	width: 800px;
 	margin: auto;
 	margin-bottom: -15px;
@@ -466,7 +467,7 @@ input#userName-input {
 	padding: 5px;
 	cursor: pointer;
 	background-color: rgba(205, 205, 205, 0.90);
-	border: 0px solid #7e0e26;
+	/*border: 0px solid #7e0e26;*/
 	border-radius: 0px;
 	font-size: 1.2em;
 	font-weight: bold;
@@ -487,7 +488,7 @@ input#userName-input {
 	width: 800px;
 	margin: auto;
 	text-align: left;
-	background-color: #7e0e26;
+	/*background-color: #7e0e26;*/
 	color: #fff;
 	font-size: 17px;
 	border: 2px solid #fff;
@@ -592,7 +593,7 @@ nav#menu>ul>li>a:hover {
 
 h2.h2-contact {
 	text-align: left;
-	color: #fff;
+	color: #017391 !important;
 	font-size: 20px;
 }
 
@@ -655,7 +656,7 @@ background-color: rgba(126, 14, 38,0.9);
 }
 
 td > input[type="submit"] {
-	background-color: #BE4B64;
+	/*background-color: #BE4B64;*/
 }
 
 .phpc-main.phpc-event {
@@ -679,7 +680,7 @@ input#submit_event {
 	padding-left: 25px;
 	padding-top: 20px;
 	padding-bottom: 23px;
-	border: 0px solid #7e0e26;
+	/*border: 0px solid #7e0e26;*/
 	border-radius: 0px;
 	font-size: 1.2em;
 	color: #fff;
@@ -722,7 +723,7 @@ input#addNewsButton {
 	padding-left: 25px;
 	padding-top: 6px;
 	padding-bottom: 6px;
-	border: 0px solid #7e0e26;
+	/*border: 0px solid #7e0e26;*/
 	border-radius: 0px;
 	font-size: 1.2em;
 	color: #fff;
@@ -779,11 +780,10 @@ a.phpc-add.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-onl
 border: 0;
 float: right;
 margin-top: 65px;
-color: #fff;
+color: #017391;
 padding: 5px;
 cursor: pointer;
-background-color: #5A0013;
-border: 0px solid #7e0e26;
+background-color: rgba(205, 205, 205, 0.90);
 border-radius: 0px;
 /* font-weight: bold; */
 width: 20%;

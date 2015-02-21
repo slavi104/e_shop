@@ -24,10 +24,10 @@ $user = new User($id);
             <div class="articlesFull" style="cursor:auto;">
                                     
                 <div class="row-fluid span12">
-                    <!-- <div class="img_articles span5" style="text-align:center;">
+                    <div class="img_articles span4" style="text-align:center;">
                         <img style="max-width:300px; max-height:230px;" src="<?php echo $user->getAvatar(); ?>"/>
-                    </div> -->
-                    <div class="span3 form-input-container">
+                    </div>
+                    <div class="span4 form-input-container">
                         <label>Име:</label>
                         <input type="text" id="name" value="<?php echo $user->getUserName()?>" name="username">
                         <span class="errorloc"></span>
@@ -37,9 +37,7 @@ $user = new User($id);
                         <input type="text" id="email" value="<?php echo $user->getEmail();?>" name="email">
                         <span class="errorloc"></span>
                     </div>
-                </div>
-                <div class="row-fluid span12">
-                    <div class="span3 form-input-container">
+                    <div class="span4 form-input-container">
                         <label>Парола:</label>
                         <input type="password" id="pass1" name="pass1">
                         <span class="errorloc"></span>
@@ -49,6 +47,8 @@ $user = new User($id);
                         <input type="password" id="pass2" name="pass2">
                         <span class="errorloc"></span>
                     </div>
+                </div>
+                <div class="row-fluid span12">
                 </div>
                 <div class="row-fluid span12">
                     <div class="span3 form-input-container">
