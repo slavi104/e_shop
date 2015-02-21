@@ -27,6 +27,16 @@ $user = new User($id);
             <div class="article-title" style="height: 230px;">
                <h2 class="h2-contact"><?php echo $user->getUserName();?></h2>
                <h2 class="h2-contact">Имейл: <?php echo $user->getEmail();?></h2>
+               <h2 class="h2-contact">Телефон: <?php echo $user->getPhone();?></h2>
+               <h2 class="h2-contact">Адрес: <?php echo $user->getAddress();?></h2>
+               <h2 class="h2-contact">Допълнителна информация: <?php echo $user->getContactData();?></h2>
+               <h2 class="h2-contact">
+               <?php if($user->getUserType() == 'person'){
+                  echo 'Рожденна дата: ' . $user->getBirthday();
+               } else {
+                  echo 'Дата на създаване: ' . $user->getBirthday();
+               }?>
+               </h2>
                
                <br>
                 <?php

@@ -26,6 +26,13 @@ $user = new User($id);
                 <div class="row-fluid span12">
                     <div class="img_articles span4" style="text-align:center;">
                         <img style="max-width:300px; max-height:230px;" src="<?php echo $user->getAvatar(); ?>"/>
+                        <div class="row-fluid span12">
+                            <div class="form-input-container">
+                                <label for="file">Снимка на профила:</label>
+                                <input type="file" name="file" id="file">
+                                <!-- <input type="submit" name="submit" value="SAVE"> -->
+                            </div>
+                        </div>
                     </div>
                     <div class="span4 form-input-container">
                         <label>Име:</label>
@@ -47,15 +54,32 @@ $user = new User($id);
                         <input type="password" id="pass2" name="pass2">
                         <span class="errorloc"></span>
                     </div>
-                </div>
-                <div class="row-fluid span12">
-                </div>
-                <div class="row-fluid span12">
-                    <div class="span3 form-input-container">
-                        <label for="file">Снимка на профила:</label>
-                        <input type="file" name="file" id="file">
-                        <!-- <input type="submit" name="submit" value="SAVE"> -->
+                    <div class="span4 form-input-container">
+                        <label>Телефон:</label>
+                        <input type="text" id="phone" name="phone" value="<?php echo $user->getPhone();?>">
+                        <span class="errorloc"></span>
                     </div>
+                    <div class="span3 form-input-container">
+                        <?php if($user->getUserType() == 'person'){?>
+                            <label>Рожденна дата:</label>
+                        <?php } else { ?>
+                            <label>Дата на създаване:</label>
+                        <?php } ?>
+                        <input type="date" id="date" data-format="dd-mm-yyyy" name="date" value="<?php echo $user->getBirthday();?>" />
+                        <span class="errorloc"></span>
+                    </div>
+                    <div class="span12 form-input-container">
+                        <label>Адрес:</label>
+                        <textarea type="text" id="address" name="address"><?php echo $user->getAddress();?></textarea>
+                        <span class="errorloc"></span>
+                    </div>
+                    <div class="span12 form-input-container">
+                        <label>Дапълнителна информация:</label>
+                        <textarea type="text" id="contact_data" name="contact_data"><?php echo $user->getContactData();?></textarea>
+                        <span class="errorloc"></span>
+                    </div>
+                </div>
+                <div class="row-fluid span12">
                 </div>
                
                 <div class="row-fluid span12 no-left-margin">

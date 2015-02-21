@@ -337,12 +337,24 @@ input#userName-input {
  #registrationForm
  {
 	color: #017391 !important;
+	height: 610px;
  }
-  #registrationForm input[type="text"], #registrationForm input[type="password"]
+  #registrationForm input[type="text"], 
+  #registrationForm input[type="password"], 
+  #registrationForm input[type="date"],
+  #registrationForm textarea
   {
 	padding: 5px;
 	border-radius: 5px;
 	color:black;
+ }
+
+ #registrationForm textarea {
+ 	width: 95%;
+ }
+
+ #registrationForm input[type="date"] {
+ 	height: 32px;
  }
  #registrationForm label
  {
@@ -473,6 +485,7 @@ input#userName-input {
 	font-weight: bold;
 	width: 20%;
 	margin-right: 30px;
+	margin-top: 15px;
 }
 
 #registerButton:hover{
@@ -807,4 +820,17 @@ span.is-teacher.pull-right {
 a:hover {
 background-color: #8a9aa1 !important;
 color:white;
+}
+
+label.person_type_label {
+display: inline-block;
+max-width: 160px;
+}
+
+input.person_type {
+display: inline-block;
+width: 15px;
+position: relative;
+float: left;
+margin-right: 7px !important;
 }

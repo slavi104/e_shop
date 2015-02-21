@@ -12,8 +12,16 @@ $( document ).ready(function() {
 <div id="registrationForm">
     <h2 class="span12 row-fluid">Регистрация:</h2>
     <form method="POST" class="row-fluid span12" id="">
-
         <div class="row-fluid span12">
+            <div class="span5 form-input-container">
+                <input checked class="person_type" type="radio" name="user_type" value="person" id="type_person" />
+                <label class="person_type_label" for="type_person">Физическо лице</label>
+                <input class="person_type" type="radio" name="user_type" value="company" id="type_company" />
+                <label class="person_type_label" for="type_company">Юридическо лице</label>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="row-fluid span12 no-left-margin">
             <div class="span5 form-input-container">
 
                 <label>Име:*</label>
@@ -39,6 +47,33 @@ $( document ).ready(function() {
             </div>
         </div>
         <div class="row-fluid span12 no-left-margin">
+            <div class="span5 form-input-container">
+                <label>Телефон:</label>
+                <input type="text" id="phone" name="phone">
+                <span class="errorloc"></span>
+            </div>
+            <div class="span5 form-input-container">
+                <label>Рожденна дата/Дата на създаване:</label>
+                <input type="date" id="date" data-format="dd-mm-yyyy" name="date" />
+                <span class="errorloc"></span>
+            </div>
+        </div>
+        <div class="row-fluid span12 no-left-margin">
+            <div class="span12 form-input-container">
+                <label>Адрес:</label>
+                <textarea type="text" id="address" name="address"></textarea>
+                <span class="errorloc"></span>
+            </div>
+        </div>
+        <div class="row-fluid span12 no-left-margin">
+            <div class="span12 form-input-container">
+                <label>Дапълнителна информация:</label>
+                <textarea type="text" id="contact_data" name="contact_data"></textarea>
+                <span class="errorloc"></span>
+            </div>
+        </div>
+        <br>
+        <div class="row-fluid span12 no-left-margin">
             <input type="submit" id="registerButton" value="Запиши" class="btn nav-buttons pull-right">
         </div>
        
@@ -60,7 +95,7 @@ if ($_POST){
         $pass1 = trim($_POST['pass1']);
         $pass2 = trim($_POST['pass2']);
         $email = trim($_POST['email']);
-        $sex = trim($_POST['sex']);
+        //$sex = trim($_POST['sex']);
         fUTF8::clean($name);
         fUTF8::clean($pass1);
         fUTF8::clean($pass2);
@@ -97,6 +132,11 @@ if ($_POST){
                 $user->setUserName($name);
                 $user->setPassword($hashedPass);
                 $user->setEmail($email);
+                $user->setPhone($_POST['phone']);
+                $user->setContactData($_POST['contact_data']);
+                $user->setAddress($_POST['address']);
+                $user->setBirthday($_POST['date']);
+                $user->setUserType($_POST['user_type']);
                 $user->setCreated(new fTimestamp());
                 $user->store();
             } catch (fExpectedException $e) {

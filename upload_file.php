@@ -60,6 +60,11 @@
 				} elseif($pass1 != $pass2) {
 					echo '<script type="text/javascript"> alert("Паролите не съвпадат!!!"); </script>';
 				}
+
+        $user->setPhone($_POST['phone']);
+        $user->setContactData($_POST['contact_data']);
+        $user->setAddress($_POST['address']);
+        $user->setBirthday($_POST['date']);
         $user->setEmail($email);
 
 				if ($_FILES["file"]["name"] != "") {
