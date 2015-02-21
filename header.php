@@ -261,8 +261,112 @@
                   <li class="nav-buttons btn"><a data-id="calendar" id="nav_calendar" href="calendar.php">Календар</a></li> -->
                 <?php }?>
                 <li class="nav-buttons btn"><a data-id="contacts" id="nav_contacts" href="contacts.php">Контакти</a></li>
-                <!-- <li class="nav-buttons btn"><a data-id="unwe" id="nav_unwe" href="http://www.unwe.bg/bg/">Официален сайт на УНСС</a></li>
-                <li class="nav-buttons btn"><a data-id="forum" id="nav_forum" href="http://forum.unwe.bg/">Форум на УНСС</a></li> -->
+                <li class="nav-buttons btn"><a data-id="for_us" id="nav_for_us" href="for_us.php">За нас</a></li>
+                <li class="nav-buttons btn"><a data-id="categories" id="nav_categories" href="#">Категории</a></li>
+                <li class="nav-buttons btn categories_accordion hidden">
+                  <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            Спортни стоки
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="sportswear" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <ul>
+                            <li><a href="#">Nike </a></li>
+                            <li><a href="#">Under Armour </a></li>
+                            <li><a href="#">Adidas </a></li>
+                            <li><a href="#">Puma</a></li>
+                            <li><a href="#">ASICS </a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            Мъже
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="mens" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <ul>
+                            <li><a href="#">Fendi</a></li>
+                            <li><a href="#">Guess</a></li>
+                            <li><a href="#">Valentino</a></li>
+                            <li><a href="#">Dior</a></li>
+                            <li><a href="#">Versace</a></li>
+                            <li><a href="#">Armani</a></li>
+                            <li><a href="#">Prada</a></li>
+                            <li><a href="#">Dolce and Gabbana</a></li>
+                            <li><a href="#">Chanel</a></li>
+                            <li><a href="#">Gucci</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordian" href="#womens">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            Жени
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="womens" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <ul>
+                            <li><a href="#">Fendi</a></li>
+                            <li><a href="#">Guess</a></li>
+                            <li><a href="#">Valentino</a></li>
+                            <li><a href="#">Dior</a></li>
+                            <li><a href="#">Versace</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#">Деца</a></h4>
+                      </div>
+                    </div>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#">Мода</a></h4>
+                      </div>
+                    </div>
+          
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#">Интериор</a></h4>
+                      </div>
+                    </div>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#">Облекла</a></h4>
+                      </div>
+                    </div>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#">Чанти</a></h4>
+                      </div>
+                    </div>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#">Обувки</a></h4>
+                      </div>
+                    </div>
+                  </div><!--/category-products-->
+                </li>
               </ul>
             </div>
             <div class="span8 pull-right" id="wrapper1">

@@ -63,7 +63,7 @@ ul>li>a
 {
 	text-decoration: none;
 	padding-right: 25px;
-	background-color: #f0f0f0;
+	background-color: #f0f0f0 !important;
 	padding-left: 25px;
 	padding-top: 20px;
 	padding-bottom: 23px;
@@ -82,7 +82,7 @@ nav#menu, nav#menu>ul {
 	height: 65px;
 	margin-left: 0px;
 	margin-bottom: 20px;
-	background-color: #7b8490;
+	background-color: #7b8490 !important;
 }
 nav#menu>ul>li>a:hover
 {
@@ -93,7 +93,7 @@ nav#menu>ul>li>a:hover
 }
 #menu .subMenu
 {
-	background-color: #035151;
+	background-color: #035151 !important;
 	top: 45px;
 	position: absolute;
 	width: 100%;
@@ -833,4 +833,19 @@ width: 15px;
 position: relative;
 float: left;
 margin-right: 7px !important;
+}
+
+.panel-body>ul>li>a {
+	padding: 0;
+	text-decoration: none;
+	background-color: white !important;
+}
+
+.panel-body>ul>li {
+	list-style-type: none;
+	list-style: none;
+}
+
+.panel_css_fix{
+	border: 0 !important;
 }

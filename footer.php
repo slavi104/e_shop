@@ -21,6 +21,20 @@
 		 	// 	$('#nav_' + open_menu).css('background-color', 'rgb(123, 132, 144) !important;');
 		 	// 	$('#nav_' + open_menu).css('color', '#fff !important');
 		 	// };
+
+		 	$("#nav_categories").on('click', function(){
+
+		 		if ($('.categories_accordion').hasClass('hidden')) {
+		 			$('.categories_accordion').removeClass('hidden');
+		 			$(this).parent().parent().find('.nav-buttons').not('.categories_accordion').addClass('hidden');
+		 			$("#nav_categories").parent().removeClass('hidden');
+		 			$("#nav_categories").text('Назад');
+		 		} else {
+		 			$('.categories_accordion').addClass('hidden');
+		 			$(this).parent().parent().find('.nav-buttons').not('.categories_accordion').removeClass('hidden');
+		 			$("#nav_categories").text('Категории');
+		 		};
+		 	});
 		});
 		</script>
 	</body>
