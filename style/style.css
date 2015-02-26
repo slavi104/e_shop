@@ -11,7 +11,8 @@ body, header, h1, h2, h3, footer, section, article, nav, ul, ol, table, div, p, 
 
 body {
 	color: #4d4d4d;
-	background: #f9f9f9;
+	/*background: #f9f9f9;*/
+	background-image: url("../images/general/18.jpg");
 }
 
 body.middle {
