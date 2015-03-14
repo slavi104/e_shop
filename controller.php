@@ -13,6 +13,16 @@ class User extends fActiveRecord{
 
 }
 
+class Item extends fActiveRecord{
+
+
+}
+
+class Order extends fActiveRecord{
+
+
+}
+
 
 class Functions {
 
