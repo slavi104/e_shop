@@ -23,6 +23,11 @@ class Order extends fActiveRecord{
 
 }
 
+class Category extends fActiveRecord{
+
+
+}
+
 
 class Functions {
 

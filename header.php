@@ -279,6 +279,37 @@
                 <li class="nav-buttons btn"><a data-id="categories" id="nav_categories" href="#">Категории</a></li>
                 <li class="nav-buttons btn categories_accordion hidden">
                   <div class="panel-group category-products" id="accordion"><!--category-productsr-->
+
+                    <?php 
+                      $categories = fRecordSet::buildFromSQL('Category', 'SELECT categories.* FROM categories'); 
+                      foreach ($categories as $category) {
+                        $step_categories = json_decode($category->getStepCategory(), true);
+                    ?>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <?php if(fSession::get('is_admin')){ ?>
+                          <span class="pull-left"><a href="edit_category.php?id=<?php echo $category->getId();?>">Промяна</a></span>
+                        <?php } ?>  
+                        <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#accordian" href="#category_<?php echo $category->getId(); ?>">
+                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            <?php echo $category->getName(); ?>
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="category_<?php echo $category->getId(); ?>" class="panel-collapse collapse">
+                        <div class="panel-body">
+                          <ul>
+                            <?php foreach ($step_categories as $key => $step) {
+                              echo '<li><a href="#">' . $step . ' </a></li>';
+                            } ?>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <?php 
+                      }
+                    ?>
                     <div class="panel panel-default panel_css_fix">
                       <div class="panel-heading">
                         <h4 class="panel-title">
@@ -387,12 +418,12 @@
                   <div class="panel-group category-products" id="accordion"><!--category-productsr-->
                     <div class="panel panel-default panel_css_fix">
                       <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#">Поръчки</a></h4>
+                        <h4 class="panel-title"><a href="orders.php">Поръчки</a></h4>
                       </div>
                     </div>
                     <div class="panel panel-default panel_css_fix">
                       <div class="panel-heading">
-                        <h4 class="panel-title"><a href="add_item.php">Добавяне на артикул</a></h4>
+                        <h4 class="panel-title"><a href="categories.php">Категории</a></h4>
                       </div>
                     </div>
                   </div><!--/category-products-->

@@ -869,3 +869,74 @@ a#nav_add_item {
 #nav_add_item_li>a:hover {
     background-color: white !important;
 }
+
+.item_images {
+	margin-left: 20px;
+	width: 90px;
+	margin-top: 20px;
+	border-radius: 2px;
+	border: 2px solid #8a9aa1;
+}
+
+.item_images:hover {
+	position: absolute;
+	width: 200px;
+	border-radius: 0px;
+	border: 2px solid #8a9aa1;
+}
+
+input[type="file"]{
+	position: relative;
+    height: 100%;
+    width: auto;
+    opacity: 0;
+    -moz-opacity: 0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+
+}
+.input_file_holder{
+	width: 150px;
+    height: 22px;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#item_category {
+	padding: 5px;
+	border-radius: 5px;
+	color: black;
+	width: 184px;
+}
+
+span.delete_button {
+  border: 2px solid red;
+  border-radius: 100%;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  color: red;
+  cursor: pointer;
+}
+
+#save_category{
+  border: 0;
+  color: #fff;
+  padding: 5px;
+  cursor: pointer;
+  background-color: rgba(205, 205, 205, 0.90);
+  border-radius: 0px;
+  font-size: 1.2em;
+  font-weight: bold;
+  width: 20%;
+  margin-right: 30px;
+  margin-top: 15px;
+}
+
+#item_step_category {
+  padding: 5px;
+  border-radius: 5px;
+  color: black;
+  width: 184px;
+}
