@@ -26,14 +26,29 @@
 
 		 		if ($('.categories_accordion').hasClass('hidden')) {
 		 			$('.categories_accordion').removeClass('hidden');
-		 			$(this).parent().parent().find('.nav-buttons').not('.categories_accordion').addClass('hidden');
+		 			$(this).parent().parent().find('.nav-buttons').not('.categories_accordion').not('.admin_accordion').addClass('hidden');
 		 			$("#nav_categories").parent().removeClass('hidden');
 		 			$("#nav_categories").text('Назад');
 		 		} else {
 		 			$('.categories_accordion').addClass('hidden');
-		 			$(this).parent().parent().find('.nav-buttons').not('.categories_accordion').removeClass('hidden');
+		 			$(this).parent().parent().find('.nav-buttons').not('.categories_accordion').not('.admin_accordion').removeClass('hidden');
 		 			$("#nav_categories").text('Категории');
 		 		};
+		 	});
+
+		 	$("#nav_admin").on('click', function(){
+
+		 		if ($('.admin_accordion').hasClass('hidden')) {
+		 			$('.admin_accordion').removeClass('hidden');
+		 			$(this).parent().parent().find('.nav-buttons').not('.admin_accordion').not('.categories_accordion').addClass('hidden');
+		 			$("#nav_admin").parent().removeClass('hidden');
+		 			$("#nav_admin").text('Назад');
+		 		} else {
+		 			$('.admin_accordion').addClass('hidden');
+		 			$(this).parent().parent().find('.nav-buttons').not('.admin_accordion').not('.categories_accordion').removeClass('hidden');
+		 			$("#nav_admin").text('Админ панел');
+		 		};
+		 		
 		 	});
 		});
 		</script>

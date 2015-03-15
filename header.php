@@ -1,68 +1,82 @@
 ﻿<!DOCTYPE html>
 <?php
-    error_reporting(E_ERROR | E_PARSE);
-    session_start();    //$root = "/newhungry/";
-    $root = "/e_shop/";
-    require_once "controller.php";
-    
-     if ($_POST) {
-         if(isset($_POST['emaillog'])) {
-	           $pass = trim($_POST['pass']);
-	           $email = trim($_POST['emaillog']);
-	           fUTF8::clean($pass);
-	           fUTF8::clean($email);		
-            try {
-              	$user = new User(array('email'=>$email));
-                $user->setIsActive(1);
-                $user->store();
-              	$passHash = $user -> getPassword();
-	         } catch (fExpectedException $e) {
-            echo $e->printMessage();
-	         }
-        	if (fCryptography::checkPasswordHash($pass,$passHash)) {
-        		fSession::open();
-        		fSession::set('current_user_id', $user->getId());
-            fSession::set('current_user_name', $user->getUserName());
-            if($user->getId() == 1 || $user->getId() == 17 || $user->getId() == 9){
-              fSession::set('is_admin', true);
-            } else {
-              fSession::set('is_admin', false);
-            }
-            $_SESSION['isLogged'] = true;
-        		} else {
-        			echo 'Error in email or password';
-        		}
-                 }
-        	}
 
-   $lang = "BG";
-   if($lang == "EN"){
-       $home = "Home";
-       $articles = "Events";
-       $users = "Users";
-       $contacts = "Contacts";
-       if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true){
-           $profile = fSession::get('current_user_name');
-       }
-       $register = "Register";
-       $login = "Login";
-       $logout = "Logout";
-       $addArticle = "Add Event";
-   }
-   else {
-      $home = "Начало";
-       $articles = "Новини";
-       $users = "Потребители";
-       $contacts = "Контакти";
-       if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true)
-       {
-           $profile = fSession::get('current_user_name');
-       }
-       $register = "Регистрация";
-       $login = "Вход";
-       $logout = "Изход";
-       $addArticle = "Добави новина";
-   }
+  error_reporting(E_ERROR | E_PARSE);
+  session_start();    //$root = "/newhungry/";
+  $root = "/e_shop/";
+  require_once "controller.php";
+
+  $admin_ids = array(1, 8);
+
+  if ($_POST) {
+    if(isset($_POST['emaillog'])) {
+
+      $pass = trim($_POST['pass']);
+      $email = trim($_POST['emaillog']);
+      fUTF8::clean($pass);
+      fUTF8::clean($email);	
+
+      try {
+      	$user = new User(array('email'=>$email));
+        $user->setIsActive(1);
+        $user->store();
+      	$passHash = $user -> getPassword();
+      } catch (fExpectedException $e) {
+        echo $e->printMessage();
+      }
+
+    	if (fCryptography::checkPasswordHash($pass,$passHash)) {
+
+    		fSession::open();
+    		fSession::set('current_user_id', $user->getId());
+        fSession::set('current_user_name', $user->getUserName());
+
+        $_SESSION['isLogged'] = true;
+
+        // print_r($admin_ids);
+        // print_r($user->getId());
+        // var_dump(in_array($user->getId(), $admin_ids));
+        fSession::set('is_admin', in_array($user->getId(), $admin_ids));
+
+  		} else {
+  			echo 'Грешка в имейла или паролата!';
+  		}
+    }
+  }
+
+  $lang = "BG";
+
+  if($lang == "EN"){
+
+    $home = "Home";
+    $articles = "Events";
+    $users = "Users";
+    $contacts = "Contacts";
+
+    if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true){
+      $profile = fSession::get('current_user_name');
+    }
+
+    $register = "Register";
+    $login = "Login";
+    $logout = "Logout";
+    $addArticle = "Add Event";
+
+  } else {
+
+    $home = "Начало";
+    $articles = "Новини";
+    $users = "Потребители";
+    $contacts = "Контакти";
+    if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true){
+      $profile = fSession::get('current_user_name');
+    }
+    $register = "Регистрация";
+    $login = "Вход";
+    $logout = "Изход";
+    $addArticle = "Добави новина";
+
+  }
 ?>
 <html>
     <head>
@@ -201,14 +215,14 @@
                     
                     
                     <?php 
-                      // if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
-                      //     if (fSession::get('is_admin')) {
-                      //         echo '<li class="nav-buttons btn pull-right"><a href="'.$root.'addEvent.php"> Добави събитие </a></li>';
-                      //         echo '<li class="nav-buttons btn pull-right"><a href="'.$root.'addArticle.php">'.$addArticle.'</a></li>';
-                      //     }
-                      // }
+                      if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
+                          echo '<li class="pull-right nav-buttons btn" id="nav_add_item_li"><a data-id="add_item" id="nav_add_item" href="add_item.php">ДОБАВИ АРТИКУЛ</a></li>';
+                          if (fSession::get('is_admin')) {
+                              //echo '<li class="nav-buttons btn pull-right"><a href="'.$root.'addEvent.php"> Добави събитие </a></li>';
+                          }
+                      }
                       ?>
-                  </li>
+                  
               </ul>
             </nav>
           <script>
@@ -264,7 +278,7 @@
                 <li class="nav-buttons btn"><a data-id="for_us" id="nav_for_us" href="for_us.php">За нас</a></li>
                 <li class="nav-buttons btn"><a data-id="categories" id="nav_categories" href="#">Категории</a></li>
                 <li class="nav-buttons btn categories_accordion hidden">
-                  <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                  <div class="panel-group category-products" id="accordion"><!--category-productsr-->
                     <div class="panel panel-default panel_css_fix">
                       <div class="panel-heading">
                         <h4 class="panel-title">
@@ -367,6 +381,23 @@
                     </div>
                   </div><!--/category-products-->
                 </li>
+                <?php if(fSession::get('is_admin')){ ?>
+                  <li class="nav-buttons btn"><a data-id="admin" id="nav_admin" href="#">Админ панел</a></li>
+                  <li class="nav-buttons btn admin_accordion hidden">
+                  <div class="panel-group category-products" id="accordion"><!--category-productsr-->
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="#">Поръчки</a></h4>
+                      </div>
+                    </div>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="add_item.php">Добавяне на артикул</a></h4>
+                      </div>
+                    </div>
+                  </div><!--/category-products-->
+                </li>
+                <?php } ?>
               </ul>
             </div>
             <div class="span8 pull-right" id="wrapper1">

@@ -90,7 +90,7 @@ nav#menu>ul>li>a:hover
 	height: 65px;
 	margin-left: 0px;
 	margin-bottom: 20px;
-	background-color: #7b8490 !important;
+	/*background-color: #7b8490 !important;*/
 }
 #menu .subMenu
 {
@@ -570,7 +570,7 @@ a#login-trigger {
 
 nav#menu>ul>li>a:hover {
 	text-decoration: none;
-	background-color: #017391;
+	/*background-color: #017391;*/
 }
 
 .no-left-margin{
@@ -849,4 +849,23 @@ margin-right: 7px !important;
 
 .panel_css_fix{
 	border: 0 !important;
+}
+
+a#nav_add_item {
+	border-radius: 10px;
+	padding: 15px;
+	padding-bottom: 18px;
+	padding-top: 15px;
+}
+
+#nav_add_item:hover {
+    background-color: white !important;
+}
+
+#nav_add_item_li:hover>a {
+    background-color: white !important;
+}
+
+#nav_add_item_li>a:hover {
+    background-color: white !important;
 }

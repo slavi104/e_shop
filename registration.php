@@ -3,88 +3,87 @@ require_once 'header.php';
 ?>
 
 <div id="content">
-<script>
-$( document ).ready(function() {
-    checkFormInputs()
-});
+    <script>
+        $( document ).ready(function() {
+            checkFormInputs()
+        });
+    </script>
+    <div id="registrationForm">
+        <h2 class="span12 row-fluid">Регистрация:</h2>
+        <form method="POST" class="row-fluid span12" id="">
+            <div class="row-fluid span12">
+                <div class="span5 form-input-container">
+                    <input checked class="person_type" type="radio" name="user_type" value="person" id="type_person" />
+                    <label class="person_type_label" for="type_person">Физическо лице</label>
+                    <input class="person_type" type="radio" name="user_type" value="company" id="type_company" />
+                    <label class="person_type_label" for="type_company">Юридическо лице</label>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="row-fluid span12 no-left-margin">
+                <div class="span5 form-input-container">
 
-</script>
-<div id="registrationForm">
-    <h2 class="span12 row-fluid">Регистрация:</h2>
-    <form method="POST" class="row-fluid span12" id="">
-        <div class="row-fluid span12">
-            <div class="span5 form-input-container">
-                <input checked class="person_type" type="radio" name="user_type" value="person" id="type_person" />
-                <label class="person_type_label" for="type_person">Физическо лице</label>
-                <input class="person_type" type="radio" name="user_type" value="company" id="type_company" />
-                <label class="person_type_label" for="type_company">Юридическо лице</label>
+                    <label>Име:*</label>
+                    <input type="text" id="name" name="username">
+                    <span class="errorloc"></span>
+                </div>
+                <div class="span5 form-input-container">
+                    <label>Имейл:*</label>
+                    <input type="text" id="email" name="email">
+                    <span class="errorloc"></span>
+                </div>
             </div>
-        </div>
-        <div class="clear"></div>
-        <div class="row-fluid span12 no-left-margin">
-            <div class="span5 form-input-container">
+            <div class="row-fluid span12 no-left-margin">
+                <div class="span5 form-input-container">
+                    <label>Парола:*</label>
+                    <input type="password" id="pass1" name="pass1">
+                    <span class="errorloc"></span>
+                </div>
+                <div class="span5 form-input-container">
+                    <label>Повтори паролата:*</label>
+                    <input type="password" id="pass2" name="pass2">
+                    <span class="errorloc"></span>
+                </div>
+            </div>
+            <div class="row-fluid span12 no-left-margin">
+                <div class="span5 form-input-container">
+                    <label>Телефон:</label>
+                    <input type="text" id="phone" name="phone">
+                    <span class="errorloc"></span>
+                </div>
+                <div class="span5 form-input-container">
+                    <label>Рожденна дата/Дата на създаване:</label>
+                    <input type="date" id="date" data-format="dd-mm-yyyy" name="date" />
+                    <span class="errorloc"></span>
+                </div>
+            </div>
+            <div class="row-fluid span12 no-left-margin">
+                <div class="span12 form-input-container">
+                    <label>Адрес:</label>
+                    <textarea type="text" id="address" name="address"></textarea>
+                    <span class="errorloc"></span>
+                </div>
+            </div>
+            <div class="row-fluid span12 no-left-margin">
+                <div class="span12 form-input-container">
+                    <label>Допълнителна информация:</label>
+                    <textarea type="text" id="contact_data" name="contact_data"></textarea>
+                    <span class="errorloc"></span>
+                </div>
+            </div>
+            <br>
+            <div class="row-fluid span12 no-left-margin">
+                <input type="submit" id="registerButton" value="Запиши" class="btn nav-buttons pull-right">
+            </div>
+           
+        </form>
+    </div>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            
+        });
 
-                <label>Име:*</label>
-                <input type="text" id="name" name="username">
-                <span class="errorloc"></span>
-            </div>
-            <div class="span5 form-input-container">
-                <label>Имейл:*</label>
-                <input type="text" id="email" name="email">
-                <span class="errorloc"></span>
-            </div>
-        </div>
-        <div class="row-fluid span12 no-left-margin">
-            <div class="span5 form-input-container">
-                <label>Парола:*</label>
-                <input type="password" id="pass1" name="pass1">
-                <span class="errorloc"></span>
-            </div>
-            <div class="span5 form-input-container">
-                <label>Повтори паролата:*</label>
-                <input type="password" id="pass2" name="pass2">
-                <span class="errorloc"></span>
-            </div>
-        </div>
-        <div class="row-fluid span12 no-left-margin">
-            <div class="span5 form-input-container">
-                <label>Телефон:</label>
-                <input type="text" id="phone" name="phone">
-                <span class="errorloc"></span>
-            </div>
-            <div class="span5 form-input-container">
-                <label>Рожденна дата/Дата на създаване:</label>
-                <input type="date" id="date" data-format="dd-mm-yyyy" name="date" />
-                <span class="errorloc"></span>
-            </div>
-        </div>
-        <div class="row-fluid span12 no-left-margin">
-            <div class="span12 form-input-container">
-                <label>Адрес:</label>
-                <textarea type="text" id="address" name="address"></textarea>
-                <span class="errorloc"></span>
-            </div>
-        </div>
-        <div class="row-fluid span12 no-left-margin">
-            <div class="span12 form-input-container">
-                <label>Дапълнителна информация:</label>
-                <textarea type="text" id="contact_data" name="contact_data"></textarea>
-                <span class="errorloc"></span>
-            </div>
-        </div>
-        <br>
-        <div class="row-fluid span12 no-left-margin">
-            <input type="submit" id="registerButton" value="Запиши" class="btn nav-buttons pull-right">
-        </div>
-       
-    </form>
-</div>
-<script type="text/javascript">
-    $( document ).ready(function() {
-        
-    });
-
-</script>
+    </script>
 </div>
 <?php
 
