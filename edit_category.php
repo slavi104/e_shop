@@ -2,7 +2,6 @@
     require_once 'header.php';
     $category = new Category($_REQUEST['id']);
     echo $_REQUEST['id'];
-    print_r($category);
 ?>
 <div id="content">
     <div id="registrationForm">

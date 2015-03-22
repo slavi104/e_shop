@@ -32,15 +32,78 @@ class Category extends fActiveRecord{
 class Functions {
 
     public static function getLoggedPersonByEmail($email){
-    		try{
-    			$loggedUser = new User(array("email" => $email));
-    			$loggedUserId = $loggedUser->getId();
-    		} catch (fExpectedException $e) {
-    		    echo $e->printMessage();
-    		}
-    		return $loggedUser;
-    	}
+		try{
+			$loggedUser = new User(array("email" => $email));
+			$loggedUserId = $loggedUser->getId();
+		} catch (fExpectedException $e) {
+		    echo $e->printMessage();
+		}
+		return $loggedUser;
+	}
 
+    public static function printCategoriesTabs(){
+
+        $categories = fRecordSet::buildFromSQL('Category', 'SELECT categories.* FROM categories');
+        $tabs = '';
+        $first = true;
+        foreach ($categories as $category) {
+
+            if ($first) {
+                $tabs .= '<li class="active"><a href="#' . $category->getId() . '" data-toggle="tab">' . $category->getName() . '</a></li>';
+                $first = false;
+            } else {
+                $tabs .= '<li><a href="#' . $category->getId() . '" data-toggle="tab">' . $category->getName() . '</a></li>';
+            }
+        }
+
+        return $tabs;
+    }
+
+    /*
+
+    */
+    public static function printItemsWithCategories(){
+
+        $categories = fRecordSet::buildFromSQL('Category', 'SELECT categories.* FROM categories');
+        $result = '';
+        $first = true;
+        foreach ($categories as $category) {
+            $items = fRecordSet::buildFromSQL('Item', 'SELECT items.* FROM items WHERE category=' . $category->getId());
+            if ($first) {
+                $result .= '<div class="tab-pane fade active in" id="' . $category->getId() . '" >';
+                $first = false;
+            } else {
+                $result .= '<div class="tab-pane fade" id="' . $category->getId() . '" >';
+            }
+            foreach ($items as $item) {
+                $images = explode('@', $item->getImages());
+                $result .= '
+                <div class="col-sm-3">
+                  <div class="product-image-wrapper">
+                    <div class="single-products">
+                      <div class="productinfo text-center">
+                        <div class="item_img_holder">
+                            <img src="' . $images[0] . '" alt="" />
+                        </div>
+                        <h2>' . $item->getPrice() . $item->getCurrency() . '</h2>
+                        <p>' . $item->getName() . '</p>
+                        <a href="#" data-item_id="' . $item->getId() . '" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>';
+            }
+
+            $result .= '</div>'; 
+        }
+
+        return $result;
+    }
+
+
+    /*
+
+    */
     public static function logout(){
         $id = fSession::get('current_user_id');
         try {
@@ -55,14 +118,13 @@ class Functions {
     	fSession::destroy();
     	header('Location: index.php');
     }
+
     public static function getUsers(){
-        try
-        {   
+        try{   
 
             $users = fRecordSet::buildFromSQL('User', 'SELECT users.* FROM users');
             
-        } catch (fExpectedException $e) 
-        {
+        } catch (fExpectedException $e) {
             echo $e->printMessage();
         }
         return $users;

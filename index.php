@@ -6,15 +6,21 @@
       <div class="category-tab"><!--category-tab-->
         <div class="col-sm-12">
           <ul class="nav nav-tabs">
-            <li class="active"><a href="#tshirt" data-toggle="tab">Тениски</a></li>
+            <?php 
+              echo Functions::printCategoriesTabs();
+            ?>
+            <!-- <li class="active"><a href="#tshirt" data-toggle="tab">Тениски</a></li>
             <li><a href="#blazers" data-toggle="tab">Пуловери</a></li>
             <li><a href="#sunglass" data-toggle="tab">Слънчеви очила</a></li>
             <li><a href="#kids" data-toggle="tab">Деца</a></li>
-            <li><a href="#poloshirt" data-toggle="tab">Блузи</a></li>
+            <li><a href="#poloshirt" data-toggle="tab">Блузи</a></li> -->
           </ul>
         </div>
         <div class="tab-content">
-          <div class="tab-pane fade active in" id="tshirt" >
+          <?php
+            echo Functions::printItemsWithCategories();
+          ?>
+          <!-- <div class="tab-pane fade active in" id="tshirt" >
             <div class="col-sm-3">
               <div class="product-image-wrapper">
                 <div class="single-products">
@@ -106,9 +112,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           
-          <div class="tab-pane fade" id="blazers" >
+          <!-- <div class="tab-pane fade" id="blazers" >
             <div class="col-sm-3">
               <div class="product-image-wrapper">
                 <div class="single-products">
@@ -326,7 +332,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div><!--/category-tab-->
       <div class="clear"></div>
@@ -382,7 +388,7 @@
                   <div class="single-products">
                     <div class="productinfo text-center">
                       <img src="images/home/recommend1.jpg" alt="" />
-                      <h2>24лв.</h2>
+                      <h2>26лв.</h2>
                       <p>Дреха</p>
                       <a href="#" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
                     </div>
@@ -395,7 +401,7 @@
                   <div class="single-products">
                     <div class="productinfo text-center">
                       <img src="images/home/recommend2.jpg" alt="" />
-                      <h2>24лв.</h2>
+                      <h2>26лв.</h2>
                       <p>Дреха</p>
                       <a href="#" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
                     </div>
@@ -408,7 +414,48 @@
                   <div class="single-products">
                     <div class="productinfo text-center">
                       <img src="images/home/recommend3.jpg" alt="" />
-                      <h2>24лв.</h2>
+                      <h2>26лв.</h2>
+                      <p>Дреха</p>
+                      <a href="#" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">  
+              <div class="col-sm-4">
+                <div class="product-image-wrapper">
+                  <div class="single-products">
+                    <div class="productinfo text-center">
+                      <img src="images/home/recommend1.jpg" alt="" />
+                      <h2>25лв.</h2>
+                      <p>Дреха</p>
+                      <a href="#" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="product-image-wrapper">
+                  <div class="single-products">
+                    <div class="productinfo text-center">
+                      <img src="images/home/recommend2.jpg" alt="" />
+                      <h2>25лв.</h2>
+                      <p>Дреха</p>
+                      <a href="#" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="product-image-wrapper">
+                  <div class="single-products">
+                    <div class="productinfo text-center">
+                      <img src="images/home/recommend3.jpg" alt="" />
+                      <h2>25лв.</h2>
                       <p>Дреха</p>
                       <a href="#" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
                     </div>

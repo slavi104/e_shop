@@ -943,6 +943,9 @@ span.delete_button {
 
 .col-sm-3 .productinfo img {
   width: 150px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .col-sm-3 .productinfo h2 {
@@ -951,11 +954,19 @@ span.delete_button {
   margin-top: 5px;
   margin-bottom: 5px;
   float: right;
+  position: absolute;
+  top: 114px;
+  right: 16px;
+  background: white;
+  padding: 4px;
+  top: 117px;
 }
 
 .col-sm-3 .productinfo p {
   float: left;
   font-size: 15px;
+  height: 33px;
+  width: 100%;
 }
 
 .col-sm-3 .product-image-wrapper {
@@ -999,4 +1010,9 @@ a .badge{
   padding-bottom: 1px;
   padding-left: 2px;
   padding-right: 3px;
+}
+
+.item_img_holder {
+  height: 135px;
+  position: relative;
 }
