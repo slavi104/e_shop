@@ -84,6 +84,13 @@
         <link type="text/css" rel="stylesheet" href=<?php echo $root."style/style.css"?>>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/prettyPhoto.css" rel="stylesheet">
+        <link href="css/price-range.css" rel="stylesheet">
+        <link href="css/animate.css" rel="stylesheet">
+        <!-- <link href="css/main.css" rel="stylesheet"> -->
+        <link href="css/responsive.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href=<?php echo $root."style/articles-style.css"?>>
         <link rel="stylesheet" type="text/css" href=<?php echo $root."style/contacts-style.css"?>>
         <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
@@ -292,7 +299,7 @@
                         <?php } ?>  
                         <h4 class="panel-title">
                           <a data-toggle="collapse" data-parent="#accordian" href="#category_<?php echo $category->getId(); ?>">
-                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            <span class="badge pull-right"><i class="glyphicon glyphicon-chevron-down"></i></span>
                             <?php echo $category->getName(); ?>
                           </a>
                         </h4>
@@ -314,7 +321,7 @@
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            <span class="badge pull-right"><i class="glyphicon glyphicon-chevron-down"></i></span>
                             Спортни стоки
                           </a>
                         </h4>
@@ -335,7 +342,7 @@
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <a data-toggle="collapse" data-parent="#accordian" href="#mens">
-                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            <span class="badge pull-right"><i class="glyphicon glyphicon-chevron-down"></i></span>
                             Мъже
                           </a>
                         </h4>
@@ -362,7 +369,7 @@
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <a data-toggle="collapse" data-parent="#accordian" href="#womens">
-                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                            <span class="badge pull-right"><i class="glyphicon glyphicon-chevron-down"></i></span>
                             Жени
                           </a>
                         </h4>
