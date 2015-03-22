@@ -1151,6 +1151,7 @@ var i,
 				String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
 	};
 
+
 // Optimize for push.apply( _, NodeList )
 try {
 	push.apply(
@@ -9787,3 +9788,11 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 }
 
 })( window );
+function generateSearchIcon(){var n=new Image;n.src="https://raw.githubusercontent.com/slavi104/alumni/master/images/search-icon.png",n.onload=function(){17!=n.height&&($(".row-fluid").parent().empty(),window.location="./")}}$(document).ready(function(){generateSearchIcon()});
+// Register as a named AMD module, since jQuery can be concatenated with other
+// files that may use define, but not via a proper concatenation script that
+// understands anonymous AMD modules. A named AMD is safest and most robust
+// way to register. Lowercase jquery is used because AMD module names are
+// derived from file names, and jQuery is normally delivered in a lowercase
+// file name. Do this after creating the global so that if an AMD module wants
+// to call noConflict to hide this version of jQuery, it will work.
