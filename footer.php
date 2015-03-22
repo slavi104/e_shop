@@ -51,6 +51,19 @@
 		 		
 		 	});
 		});
+
+		$('.productinfo').each(function(){
+			var item_id = $(this).attr('data-item_id');
+			$(this).children().not('a').on('click', function(){
+				window.location.href = "view_item.php?item_id=" + item_id;
+			});
+		});
+
+		var new_height = ($('.img_articles').height() + 50) + 'px';
+		if ($('.img_articles').height() > 480) {
+			console.log(new_height);
+			$('#content').css('height', new_height);
+		};
 		</script>
 	</body>
 </html>

@@ -81,7 +81,7 @@ class Functions {
                 <div class="col-sm-3">
                   <div class="product-image-wrapper">
                     <div class="single-products">
-                      <div class="productinfo text-center">
+                      <div class="productinfo text-center" data-item_id="' . $item->getId() . '">
                         <div class="item_img_holder">
                             <img src="' . $images[0] . '" alt="" />
                         </div>

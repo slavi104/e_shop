@@ -317,7 +317,7 @@
                     <?php 
                       }
                     ?>
-                    <div class="panel panel-default panel_css_fix">
+                    <!-- <div class="panel panel-default panel_css_fix">
                       <div class="panel-heading">
                         <h4 class="panel-title">
                           <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
@@ -416,7 +416,7 @@
                       <div class="panel-heading">
                         <h4 class="panel-title"><a href="#">Обувки</a></h4>
                       </div>
-                    </div>
+                    </div> -->
                   </div><!--/category-products-->
                 </li>
                 <?php if(fSession::get('is_admin')){ ?>

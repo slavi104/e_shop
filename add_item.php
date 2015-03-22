@@ -1,6 +1,5 @@
 <?php
-require_once 'header.php';
-
+    require_once 'header.php';
 ?>
 <div id="content">
 
@@ -92,7 +91,8 @@ $(document).ready(function() {
             data: $(this).serialize(),
             dataType: 'html'
         }).done(function(data){
-            console.log(data);
+            //console.log(data);
+            window.location.href = "index.php";
         });
     }));
 

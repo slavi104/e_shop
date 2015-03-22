@@ -1016,3 +1016,7 @@ a .badge{
   height: 135px;
   position: relative;
 }
+
+img.item_image_in_view {
+  margin-bottom: 15px;
+}
