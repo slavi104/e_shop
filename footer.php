@@ -64,6 +64,30 @@
 			console.log(new_height);
 			$('#content').css('height', new_height);
 		};
+
+		$('.add-to-cart').on('click', function(){
+			var name = $(this).attr('data-name');
+			var number = prompt('Вие избрахте да добавите в количката ' + name + ', моля посочете желаната от вас бройка!');
+			if(isNaN(number) || number < 1 || number % 1 !== 0){
+				$(this).trigger('click');
+			} else {
+				$.ajax({
+			        type: 'post',
+			        url: "add_item_to_card.php",
+			        data: {
+			            item_id: $(this).data("item_id"),
+			            number: number
+			        },
+			        dataType: 'JSON'
+			      }).done(function(data){
+			            if (data == 1) {
+			            	alert('Артикулът е успешно добавен в количката!');
+			            };
+			      });
+			}
+			//console.log(number);
+		});
+
 		</script>
 	</body>
 </html>

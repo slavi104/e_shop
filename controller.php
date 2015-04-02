@@ -100,6 +100,99 @@ class Functions {
         return $result;
     }
 
+    /*
+
+    */
+    public static function getCardItems(){
+
+        $items = fSession::get('card');
+        $result = '';
+        
+        foreach ($items as $id => $number) {
+
+            if (!is_numeric($id) || $id < 1) {
+                continue;
+            }
+
+            try {
+                $item = new Item($id);
+            } catch (Exception $e) {
+                
+            }
+            $images = explode('@', $item->getImages());
+            $result .= '
+            <tr class="card_item_row" data-item_id="' . $item->getId() . '">
+                <td>
+                    <img width="100px" src="' . $images[0] . '" alt="" />
+                </td>
+                <td>
+                    <p>' . $item->getName() . '</p>
+                </td>
+                <td>
+                    <h4>' . $item->getPrice() . $item->getCurrency() . '</h4>
+                </td>
+                <td class="item_number" data-currency="' . $item->getCurrency() . '" data-number="' . $number . '" data-price_item="' . $item->getPrice() . '" data-total="' . $number*$item->getPrice() . '">
+                    <i class="glyphicon glyphicon-chevron-up"></i><h4>' . $number . 'бр.</h4><i class="glyphicon glyphicon-chevron-down"></i>
+                </td>
+                <td>
+                    <h4 class="item_total">' . $number*$item->getPrice() . $item->getCurrency() . '</h4>
+                </td>
+                <td class="remove_item" title="Изтрий от количката!">
+                    <i class="glyphicon glyphicon-remove-circle"></i>
+                </td>
+            </tr>';
+        }
+
+        return $result;
+    }
+
+    /*
+
+    */
+    public static function printNewestItems($is_active = 'active', $first_inactive = true){
+
+        $result = '';
+        $first = true;
+
+        $items = fRecordSet::buildFromSQL('Item', 'SELECT items.* FROM items ORDER BY created ASC');
+
+        foreach ($items as $key => $item) {
+
+            if ($is_active == 'active' && $key > 2) {
+                continue;
+            } elseif ($is_active == 'inactive' && $key < 3) {
+                continue;
+            }
+
+            if ($is_active == 'inactive') {
+                if (($key > 5 && $first_inactive) || ($first_inactive && $key < 3)) {
+                    continue;
+                }
+
+                if (($key > 8 && !$first_inactive) || (!$first_inactive && $key < 6)) {
+                    continue;
+                }
+            }
+
+            $images = explode('@', $item->getImages());
+            $result .= '
+              <div class="col-sm-4">
+                <div class="product-image-wrapper">
+                  <div class="single-products">
+                    <div class="productinfo text-center" data-item_id="' . $item->getId() . '">
+                      <img width="100px" src="' . $images[0] . '" alt="" />
+                      <h2>' . $item->getPrice() . $item->getCurrency() . '</h2>
+                      <p>' . $item->getName() . '</p>
+                      <a href="#" data-name="' . $item->getName() . '" data-item_id="' . $item->getId() . '" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
+                    </div>
+                  </div>
+                </div>
+              </div>';
+        }
+
+        return $result;
+    }
+
 
     /*
 

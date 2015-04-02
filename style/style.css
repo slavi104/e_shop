@@ -201,11 +201,11 @@ aside
 {
 	display: none;
 }
-#users
+#card_table, #users
 {
 	margin:auto;
 }
-#users, #users td
+#card_table, #card_table td, #users, #users td
 {
 	border: 2px solid black;
 	width: 700px;
@@ -213,10 +213,20 @@ aside
 	color: #fff;
 	border-color: #fff;
 }
+
+td#card_total {
+  font-size: 20px;
+  font-weight: bold;
+}
 #users td, #users th
 {
 	padding-left: 25px;
 	padding-right: 25px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+#card_table{
 	padding-top: 5px;
 	padding-bottom: 5px;
 }
@@ -1019,4 +1029,18 @@ a .badge{
 
 img.item_image_in_view {
   margin-bottom: 15px;
+}
+
+td.remove_item {
+  font-size: 27px;
+  color: white !important;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+td.remove_item:hover{
+  font-size: 27px;
+  color: red !important;
+  font-weight: bold;
+  cursor: pointer;
 }

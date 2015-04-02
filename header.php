@@ -30,6 +30,7 @@
     		fSession::open();
     		fSession::set('current_user_id', $user->getId());
         fSession::set('current_user_name', $user->getUserName());
+        fSession::set('card', array());
 
         $_SESSION['isLogged'] = true;
 
@@ -116,6 +117,7 @@
                   echo '<span class="span5" ></span>';
                   echo '<span class="span1"><a class="header_a" href="'.$root.'profile.php"> Профил </a></span>';
                   echo '<span class="span1"><a class="header_a" href="'.$root.'logout.php">'.$logout.'</a></span>';
+                  echo '<span class="span1"><a class="header_a" href="'.$root.'card.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp; Количка</a></span>';
                   echo '</div>';
 
               } else {

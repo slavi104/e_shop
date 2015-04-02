@@ -17,8 +17,12 @@ if(isset($_POST['number']) && !empty($_POST['number'])) {
 
                 //if($count >= $number){
                     //$user = new User(array("id" => $key+1));
+                    $avatar = $user->getAvatar();
+                    if ($avatar == NULL || $avatar == '') {
+                        $avatar = 'images/profile_pictures/default.png'; 
+                    }
                     echo '<tr>';
-                    echo '<td><img style="width:50px;" src="' . $user->getAvatar() . '"></td>';
+                    echo '<td><img style="width:50px;" src="' . $avatar . '"></td>';
                     echo '<td><a href="profile.php?id='.$user->getId().'">'.$user->getUserName().'</a></td>';
                     echo '<td>'.$user->getEmail().'</td>';
                     echo '</tr>';
