@@ -6,18 +6,18 @@
   <table id="card_table">
       <thead>
           <tr>
-              <th style="width:10%"> Снимка:</th>
-              <th> Продукт:</th>
-              <th> Ед. цена:</th>
-              <th> Количество:</th>
-              <th> Общо:</th>
-              <th></th>
+              <th style="width:18%; padding: 5px;"> Снимка:</th>
+              <th style="width:18%; padding: 5px;"> Продукт:</th>
+              <th style="width:18%; padding: 5px;"> Ед. цена:</th>
+              <th style="width:18%; padding: 5px;"> Количество:</th>
+              <th style="width:18%; padding: 5px;"> Общо:</th>
+              <th style="width:10%; padding: 5px;"></th>
           </tr>
       </thead>
       <tbody id="tb">
         <?php echo Functions::getCardItems(); ?>
         <tr>
-          <td colspan="4">
+          <td style="text-align: right; padding-right:5px;" colspan="4">
             Крайна сума:
           </td>
           <td id="card_total">
@@ -30,7 +30,7 @@
       </tbody>
   </table>
   <div class="row-fluid span12 no-left-margin">
-      <input style="width:200px;" type="submit" id="registerButton" value="Поръчай" class="btn nav-buttons pull-right">
+      <input style="width:200px;  margin-right: 12px; margin-left: -8px;" type="submit" id="registerButton" value="Поръчай" class="btn nav-buttons pull-right">
       <input style="" type="submit" id="save_category" value="Запиши" class="btn nav-buttons pull-right">
   </div>
 </div>
@@ -108,6 +108,39 @@ $(document).ready(function() {
       url: "save_card.php",
       data: {
           items: JSON.stringify(items)
+      },
+      dataType: 'json'
+    }).done(function(data){
+
+        if (data == 1) {
+          alert('Промените бяха записани успешно!');
+        } else {
+          alert('Възникна грешка при записването. Моля опитайте отново!');
+        };
+
+    });
+
+  });
+
+  $('#registerButton').on('click', function(e){
+    e.preventDefault();
+    var items = {};
+
+    $('.item_number').each(function(){
+      var item_id = $(this).data('item_id');
+      var number  = $(this).data('number');
+      items[item_id] = number;
+    });
+
+    //console.log(items);
+    info_arr = {}
+
+    $.ajax({
+      type: 'post',
+      url: "make_order.php",
+      data: {
+        items: JSON.stringify(items),
+        info: JSON.stringify(info_arr)
       },
       dataType: 'json'
     }).done(function(data){
