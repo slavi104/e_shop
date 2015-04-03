@@ -1044,3 +1044,10 @@ td.remove_item:hover{
   font-weight: bold;
   cursor: pointer;
 }
+
+.col-sm-4 .productinfo img {
+  width: 106%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

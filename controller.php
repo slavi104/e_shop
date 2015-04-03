@@ -180,7 +180,9 @@ class Functions {
                 <div class="product-image-wrapper">
                   <div class="single-products">
                     <div class="productinfo text-center" data-item_id="' . $item->getId() . '">
-                      <img width="100px" src="' . $images[0] . '" alt="" />
+                      <div class="item_img_holder">
+                        <img src="' . $images[0] . '" alt="" />
+                      </div>
                       <h2>' . $item->getPrice() . $item->getCurrency() . '</h2>
                       <p>' . $item->getName() . '</p>
                       <a href="#" data-name="' . $item->getName() . '" data-item_id="' . $item->getId() . '" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
