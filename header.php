@@ -29,8 +29,14 @@
 
     		fSession::open();
     		fSession::set('current_user_id', $user->getId());
+        fSession::set('current_user', $user);
         fSession::set('current_user_name', $user->getUserName());
-        fSession::set('card', array());
+        if ($user->getCardItems()) {
+          $card = json_decode($user->getCardItems(), true);
+          fSession::set('card', $card);
+        } else {
+          fSession::set('card', array());
+        }
 
         $_SESSION['isLogged'] = true;
 

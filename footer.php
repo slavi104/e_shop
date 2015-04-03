@@ -68,6 +68,9 @@
 		$('.add-to-cart').on('click', function(){
 			var name = $(this).attr('data-name');
 			var number = prompt('Вие избрахте да добавите в количката ' + name + ', моля посочете желаната от вас бройка!');
+			if (number == '') {
+				return;
+			};
 			if(isNaN(number) || number < 1 || number % 1 !== 0){
 				$(this).trigger('click');
 			} else {

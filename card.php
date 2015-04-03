@@ -91,6 +91,37 @@ $(document).ready(function() {
     });
   });
 
+  $('#save_category').on('click', function(e){
+    e.preventDefault();
+    var items = {};
+
+    $('.item_number').each(function(){
+      var item_id = $(this).data('item_id');
+      var number  = $(this).data('number');
+      items[item_id] = number;
+    });
+
+    //console.log(items);
+
+    $.ajax({
+      type: 'post',
+      url: "save_card.php",
+      data: {
+          items: JSON.stringify(items)
+      },
+      dataType: 'json'
+    }).done(function(data){
+
+        if (data == 1) {
+          alert('Промените бяха записани успешно!');
+        } else {
+          alert('Възникна грешка при записването. Моля опитайте отново!');
+        };
+
+    });
+
+  });
+
   // $('.articles').on('click', function(){
 
   //     $.ajax({

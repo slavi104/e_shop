@@ -131,7 +131,7 @@ class Functions {
                 <td>
                     <h4>' . $item->getPrice() . $item->getCurrency() . '</h4>
                 </td>
-                <td class="item_number" data-currency="' . $item->getCurrency() . '" data-number="' . $number . '" data-price_item="' . $item->getPrice() . '" data-total="' . $number*$item->getPrice() . '">
+                <td class="item_number" data-item_id="' . $item->getId() . '" data-currency="' . $item->getCurrency() . '" data-number="' . $number . '" data-price_item="' . $item->getPrice() . '" data-total="' . $number*$item->getPrice() . '">
                     <i class="glyphicon glyphicon-chevron-up"></i><h4>' . $number . 'бр.</h4><i class="glyphicon glyphicon-chevron-down"></i>
                 </td>
                 <td>
