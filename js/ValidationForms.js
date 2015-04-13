@@ -15,12 +15,12 @@ function checkFormInputs(title, questionsCount)
                     {
                     	
                         thisEl.next().empty();
-            			thisEl.next().append("Name already exists");
+            			thisEl.next().append("<p style='color:red;'>Името съществува</p>");
                     }
                     else
                     {
                     	thisEl.next().empty();
-            			thisEl.next().append("Name is ok");
+            			thisEl.next().append("<p>Валидно име</p>");
                     }
             });
 	});	
@@ -40,12 +40,12 @@ function checkFormInputs(title, questionsCount)
                     {
                     	
                         thisEl.next().empty();
-            			thisEl.next().append("Email already exists");
+            			thisEl.next().append("<p style='color:red;'>Имейлът съществува</p>");
                     }
                     else
                     {
                     	thisEl.next().empty();
-            			thisEl.next().append("Email is ok");
+            			thisEl.next().append("<p>Имейлът е валиден</p>");
                     }
             }); 
 	});
