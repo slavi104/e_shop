@@ -66,9 +66,15 @@
 		};
 
 		$('.add-to-cart').on('click', function(){
-			var name = $(this).attr('data-name');
+			var name   = $(this).attr('data-name');
+			var logged = $(this).attr('data-logged_user');
+			
+			if (logged == '0') {
+				alert('За да добавите артикул в количката моля влезте в системата!');
+				return;
+			};
 			var number = prompt('Вие избрахте да добавите в количката ' + name + ', моля посочете желаната от вас бройка!');
-			if (number == '') {
+			if (number.trim() == '') {
 				return;
 			};
 			if(isNaN(number) || number < 1 || number % 1 !== 0){

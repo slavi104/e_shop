@@ -64,6 +64,11 @@ class Functions {
     */
     public static function printItemsWithCategories(){
 
+        $logged = 0;
+        if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
+            $logged = 1;
+        }
+
         $categories = fRecordSet::buildFromSQL('Category', 'SELECT categories.* FROM categories');
         $result = '';
         $first = true;
@@ -87,7 +92,7 @@ class Functions {
                         </div>
                         <h2>' . $item->getPrice() . $item->getCurrency() . '</h2>
                         <p>' . $item->getName() . '</p>
-                        <a href="#" data-item_id="' . $item->getId() . '" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
+                        <a href="#" data-logged_user="' . $logged . '" data-item_id="' . $item->getId() . '" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
                       </div>
                     </div>
                   </div>
@@ -151,6 +156,11 @@ class Functions {
     */
     public static function printNewestItems($is_active = 'active', $first_inactive = true){
 
+        $logged = 0;
+        if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
+            $logged = 1;
+        }
+
         $result = '';
         $first = true;
 
@@ -185,7 +195,7 @@ class Functions {
                       </div>
                       <h2>' . $item->getPrice() . $item->getCurrency() . '</h2>
                       <p>' . $item->getName() . '</p>
-                      <a href="#" data-name="' . $item->getName() . '" data-item_id="' . $item->getId() . '" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
+                      <a href="#" data-logged_user="' . $logged . '" data-name="' . $item->getName() . '" data-item_id="' . $item->getId() . '" class="btn btn-default add-to-cart"><i class="glyphicon glyphicon-shopping-cart"></i>Добави в количката</a>
                     </div>
                   </div>
                 </div>
