@@ -1,12 +1,28 @@
 <?php
     require_once 'controller.php';
     if ($_POST) {
-    	$text = $_POST['text_search'];
+
+        $params = array(
+            'text' => $_POST['text_search'],
+            'category' => $_POST['category'],
+            'step_category' => $_POST['step_category']
+            );
 
         //var_dump($_POST);
     	// $articles = fRecordSet::buildFromSQL('Article', 'SELECT articles.* FROM articles');
      //    $users = fRecordSet::buildFromSQL('User', 'SELECT users.* FROM users');
     	$div = '<div id="content">';
+
+        // $div .='    <div class="col-sm-12">
+        //                 <ul class="nav nav-tabs">
+        //                     ' . Functions::printCategoriesTabs() . '
+        //                 </ul>
+        //             </div>';
+
+        $div.='     <div class="category-tab">
+                        <div class="tab-content">';
+
+        $div .=              Functions::printItemsWithCategories($params);
 
      //    $div.='<table id="users">
      //            <thead>
@@ -114,7 +130,7 @@
     	// }
 
         //$arrayName = array('fffff0' => "fffff0");
-        $div .= '</div>';
+        $div .= '</div></div></div>';
         echo $div;
     }
 ?>

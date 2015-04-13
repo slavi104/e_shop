@@ -164,13 +164,38 @@
                     <div id="search-form">
                       <div id='search_container'>
                         <input type="search" value="" id="search-input" placeholder="Търси..." name='search_text'>
+      
+                            <select id="item_category" name="category">
+                                <?php 
+                                    $categories = fRecordSet::buildFromSQL('Category', 'SELECT categories.* FROM categories');
+                                    foreach ($categories as $category) {
+                                        $step_categories = json_decode($category->getStepCategory(), true);
+                                        echo '<option data-step_category="' . implode('@', $step_categories) . '" value="' . $category->getId() . '">' . $category->getName() . '</option>';
+                                    }
+                                ?>
+                            </select>
+
+
+                            <select id="item_step_category" name="step_category">
+                                
+                            </select>
                       </div>
                     </div>
                     <script type="text/javascript">
                     $(document).ready(function() {
 
-                      function searchFunction() {
+                      $('#item_category').on('change', function(){
+                          var step_categories = $('#item_category option:selected').data('step_category').split('@');
+                          $('#item_step_category').empty();
+                          for (var i = step_categories.length - 1; i >= 0; i--) {
+                              $('#item_step_category').append('<option value="' + step_categories[i] + '">' + step_categories[i] + '</option>');
+                          };
+                      });
 
+                      $('#item_category').trigger('change');
+
+                      function searchFunction() {
+                        //alert('111111111111111111111111111');
                         $('body').css('cursor', 'auto');
                         $('#search-input').prop('disabled', false);
 
@@ -189,13 +214,14 @@
                             type: 'post',
                             url: "search.php",
                             data: {
-                                text_search: $('#search-input').val()
+                                text_search: $('#search-input').val(),
+                                category: $('#search_container #item_category').val(),
+                                step_category: $('#search_container #item_step_category').val()
                             },
                             dataType: 'html'
                           }).done(function(data){
-                            //console.log(data);
-                                  if(data != false)
-                                  {
+                            console.log(data);
+                                  if(data != false){
                                       $("#wrapper1").empty();
                                       $("#wrapper1").append(data);
                                   }
@@ -206,6 +232,7 @@
                                   $(document).off();
                                   $(document).keypress(function(e) {
                                     if(e.which == 13) {
+                                        e.preventDefault();
                                         searchFunction();
                                     }
                                   }); 
@@ -219,6 +246,7 @@
 
                       $(document).keypress(function(e) {
                           if(e.which == 13) {
+                              e.preventDefault();
                               searchFunction();
                           }
                       });

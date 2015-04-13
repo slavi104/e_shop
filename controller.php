@@ -62,18 +62,32 @@ class Functions {
     /*
 
     */
-    public static function printItemsWithCategories(){
+    public static function printItemsWithCategories($search_params = array()){
 
         $logged = 0;
         if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
             $logged = 1;
         }
+        $category_sql = '';
+        if (isset($search_params['category'])) {
+            $category_sql = ' WHERE id=' . $search_params['category'];
+        }
 
-        $categories = fRecordSet::buildFromSQL('Category', 'SELECT categories.* FROM categories');
+        $step_category_sql = '';
+        if (isset($search_params['step_category'])) {
+            $step_category_sql = " AND step_category='" . $search_params['step_category'] . "'";
+        }
+
+        $text_search = '';
+        if (isset($search_params['text'])) {
+            $text_search = " AND (`name` LIKE '%" . $search_params['text'] . "%' OR `info` LIKE '%" . $search_params['text'] . "%')";
+        }
+        
+        $categories = fRecordSet::buildFromSQL('Category', 'SELECT categories.* FROM categories' . $category_sql);
         $result = '';
         $first = true;
         foreach ($categories as $category) {
-            $items = fRecordSet::buildFromSQL('Item', 'SELECT items.* FROM items WHERE category=' . $category->getId());
+            $items = fRecordSet::buildFromSQL('Item', 'SELECT items.* FROM items WHERE category=' . $category->getId() . $step_category_sql . $text_search);
             if ($first) {
                 $result .= '<div class="tab-pane fade active in" id="' . $category->getId() . '" >';
                 $first = false;
