@@ -1,9 +1,6 @@
 ﻿<!DOCTYPE html>
 <?php
 
-  error_reporting(E_ERROR | E_PARSE);
-  session_start();    //$root = "/newhungry/";
-  $root = "/e_shop/";
   require_once "controller.php";
 
   $admin_ids = array(1, 8);
@@ -112,6 +109,7 @@
         <!--<script language="javascript" type="text/javascript" src=<?php echo $root."js/bootstrap-editable.js"?>></script>-->
         <script src=<?php echo $root."js/GlobalFunctions.js"?>></script>
         <script src=<?php echo $root."js/ValidationForms.js"?>></script>
+        <script language="javascript" type="text/javascript" src=<?php echo $root."js/main.js"?>></script>
     
         <?php if (function_exists("add_to_head")) { echo add_to_head(); } ?>
     </head>
@@ -183,74 +181,6 @@
                     </div>
                     <script type="text/javascript">
                     $(document).ready(function() {
-                      var scope = '#search_container ';
-                      $(scope + '#item_category').on('change', function(){
-                          var step_categories = $(scope + '#item_category option:selected').data('step_category').split('@');
-                          $(scope + '#item_step_category').empty();
-                          for (var i = step_categories.length - 1; i >= 0; i--) {
-                              $(scope + '#item_step_category').append('<option value="' + step_categories[i] + '">' + step_categories[i] + '</option>');
-                          };
-                      });
-
-                      $(scope + '#item_category').trigger('change');
-
-                      function searchFunction() {
-                        //alert('111111111111111111111111111');
-                        $('body').css('cursor', 'auto');
-                        $('#search-input').prop('disabled', false);
-
-                        //$('#search-input').on('keydown', function(){
-                          
-                          if ($('#search-input').val().length < 1) {
-                            return;
-                          };
-
-                          $('#search-input').off();
-                          $('body').css('cursor', 'wait');
-                          $('#search-input').prop('disabled', true);
-                          //console.log($('#search-input').val());
-
-                          $.ajax({
-                            type: 'post',
-                            url: "search.php",
-                            data: {
-                                text_search: $('#search-input').val(),
-                                category: $('#search_container #item_category').val(),
-                                step_category: $('#search_container #item_step_category').val()
-                            },
-                            dataType: 'html'
-                          }).done(function(data){
-                            console.log(data);
-                                  if(data != false){
-                                      $("#wrapper1").empty();
-                                      $("#wrapper1").append(data);
-                                  }
-
-                                  $('body').css('cursor', 'auto');
-                                  $('#search-input').prop('disabled', false);
-
-                                  $(document).off();
-                                  $(document).keypress(function(e) {
-                                    if(e.which == 13) {
-                                        e.preventDefault();
-                                        searchFunction();
-                                    }
-                                  }); 
-                                  //$("#pages").addClass("hidden");
-                            //searchFunction();
-                          });
-                          
-                          
-                        //});
-                      }
-
-                      $(document).keypress(function(e) {
-                          if(e.which == 13) {
-                              e.preventDefault();
-                              searchFunction();
-                          }
-                      });
-                      
 
                     });
                     </script>
@@ -271,36 +201,7 @@
           <script>
 
           $(document).ready(function() {
-            $( ".nav-buttons" ).mouseover(function() {
-              if ($(this).children().last().attr('class') == "subMenu") {
-                  $(this).children().last().show();
-              };
-              
-            });
-            $( ".nav-buttons" ).mouseout(function() {
-              if ($(this).children().last().attr('class') == "subMenu") {
-                $(this).children().last().hide();
-              }
-            });
-
-            $('#login-trigger').on('click', function(e){
-
-              e.preventDefault();
-
-              if ($(this).attr('data-open') == 0) {
-                $('#login-aside').show();
-                $('#right-logo').hide();
-                $(this).css('color', 'black');
-                $(this).attr('data-open', 1);
-              } else {
-                $('#login-aside').hide();
-                $('#right-logo').show();
-                $(this).css('color', 'white');
-                $(this).attr('data-open', 0);
-              };
-              
-
-            });
+            
           });
           </script>
         </div>
@@ -329,12 +230,12 @@
                         $step_categories = json_decode($category->getStepCategory(), true);
                     ?>
                     <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
+                      <div class="panel-heading" data-category_id="<?php echo $category->getId(); ?>">
                         <?php if(fSession::get('is_admin')){ ?>
                           <span class="pull-left"><a href="edit_category.php?id=<?php echo $category->getId();?>">Промяна</a></span>
                         <?php } ?>  
                         <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordian" href="#category_<?php echo $category->getId(); ?>">
+                          <a class="category_a" data-toggle="collapse" data-parent="#accordian" href="#category_<?php echo $category->getId(); ?>">
                             <span class="badge pull-right"><i class="glyphicon glyphicon-chevron-down"></i></span>
                             <?php echo $category->getName(); ?>
                           </a>
@@ -344,7 +245,7 @@
                         <div class="panel-body">
                           <ul>
                             <?php foreach ($step_categories as $key => $step) {
-                              echo '<li><a href="#">' . $step . ' </a></li>';
+                              echo '<li class="step_category_a" data-category_id="' . $category->getId() . '" data-name="' . $step . '"><a href="#">' . $step . ' </a></li>';
                             } ?>
                           </ul>
                         </div>
@@ -353,106 +254,6 @@
                     <?php 
                       }
                     ?>
-                    <!-- <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
-                            <span class="badge pull-right"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                            Спортни стоки
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="sportswear" class="panel-collapse collapse">
-                        <div class="panel-body">
-                          <ul>
-                            <li><a href="#">Nike </a></li>
-                            <li><a href="#">Under Armour </a></li>
-                            <li><a href="#">Adidas </a></li>
-                            <li><a href="#">Puma</a></li>
-                            <li><a href="#">ASICS </a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordian" href="#mens">
-                            <span class="badge pull-right"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                            Мъже
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="mens" class="panel-collapse collapse">
-                        <div class="panel-body">
-                          <ul>
-                            <li><a href="#">Fendi</a></li>
-                            <li><a href="#">Guess</a></li>
-                            <li><a href="#">Valentino</a></li>
-                            <li><a href="#">Dior</a></li>
-                            <li><a href="#">Versace</a></li>
-                            <li><a href="#">Armani</a></li>
-                            <li><a href="#">Prada</a></li>
-                            <li><a href="#">Dolce and Gabbana</a></li>
-                            <li><a href="#">Chanel</a></li>
-                            <li><a href="#">Gucci</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#accordian" href="#womens">
-                            <span class="badge pull-right"><i class="glyphicon glyphicon-chevron-down"></i></span>
-                            Жени
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="womens" class="panel-collapse collapse">
-                        <div class="panel-body">
-                          <ul>
-                            <li><a href="#">Fendi</a></li>
-                            <li><a href="#">Guess</a></li>
-                            <li><a href="#">Valentino</a></li>
-                            <li><a href="#">Dior</a></li>
-                            <li><a href="#">Versace</a></li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#">Деца</a></h4>
-                      </div>
-                    </div>
-                    <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#">Мода</a></h4>
-                      </div>
-                    </div>
-          
-                    <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#">Интериор</a></h4>
-                      </div>
-                    </div>
-                    <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#">Облекла</a></h4>
-                      </div>
-                    </div>
-                    <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#">Чанти</a></h4>
-                      </div>
-                    </div>
-                    <div class="panel panel-default panel_css_fix">
-                      <div class="panel-heading">
-                        <h4 class="panel-title"><a href="#">Обувки</a></h4>
-                      </div>
-                    </div> -->
                   </div><!--/category-products-->
                 </li>
                 <?php if(fSession::get('is_admin')){ ?>

@@ -13,6 +13,9 @@ body {
 	color: #4d4d4d;
 	/*background: #f9f9f9;*/
 	background-image: url("../images/general/18.jpg");
+	width: 100% !important;
+	height: 100% !important;
+	background-size: 100% 100%;
 }
 
 body.middle {

@@ -1,4 +1,8 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
+session_start();    //$root = "/newhungry/";
+$root = "/e_shop/";
+
 include 'libs/flourishlib-flourish-classes-0.9.0-0-geb2d48b/flourish/fException.php';
 include 'libs/flourishlib-flourish-classes-0.9.0-0-geb2d48b/flourish/fUnexpectedException.php';
 include 'libs/flourishlib-flourish-classes-0.9.0-0-geb2d48b/flourish/fExpectedException.php';
@@ -68,6 +72,7 @@ class Functions {
         if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
             $logged = 1;
         }
+        //var_dump($_SESSION['isLogged']);
         $category_sql = '';
         if (isset($search_params['category'])) {
             $category_sql = ' WHERE id=' . $search_params['category'];
