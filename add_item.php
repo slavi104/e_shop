@@ -153,15 +153,17 @@ $(document).ready(function() {
         $("#add_item_form").submit();
     });
 
-    $('#item_category').on('change', function(){
-        var step_categories = $('#item_category option:selected').data('step_category').split('@');
-        $('#item_step_category').empty();
+    var scope = '#add_item_inputs_form ';
+
+    $(scope + '#item_category').on('change', function(){
+        var step_categories = $(scope + '#item_category option:selected').data('step_category').split('@');
+        $(scope + '#item_step_category').empty();
         for (var i = step_categories.length - 1; i >= 0; i--) {
-            $('#item_step_category').append('<option value="' + step_categories[i] + '">' + step_categories[i] + '</option>');
+            $(scope + '#item_step_category').append('<option value="' + step_categories[i] + '">' + step_categories[i] + '</option>');
         };
     });
 
-    $('#item_category').trigger('change');
+    $(scope + '#item_category').trigger('change');
 
 });
 </script>
