@@ -49,8 +49,49 @@ $user = new User($id);
             </div>
         </div>
     </div>
+    <div class="clear"></div>
+      <div class="recommended_items"><!--recommended_items-->
+        <h2 class="title text-center">Предлагани продукти:</h2>
+        
+        <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+              <?php echo Functions::printNewestItems('active', false, $id);?>
+              <?php echo Functions::printNewestItems('inactive', true, $id);?>
+              <?php echo Functions::printNewestItems('inactive', false, $id);?>
+          </div>
+          
+           <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+            <i class="glyphicon glyphicon-backward"></i>
+            </a>
+            <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+            <i class="glyphicon glyphicon-forward"></i>
+            </a>      
+        </div>
+      </div><!--/recommended_items-->
 </div>
-
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.remove_item_from_profile').each(function(){
+    var self = $(this);
+    $(this).on('click', function(){
+      var id = self.parent().data('id');
+      //alert(id);
+      $.ajax({
+        type: 'post',
+        url: "delete_item.php",
+        data: {
+            id: id
+        },
+        dataType: 'json'
+      }).done(function(data){
+        if (data == 1) {};
+        //console.log($(this).parent());
+        self.parent().parent().parent().remove();
+      }); 
+    });
+  });
+});
+</script>
 <?php
     require_once 'footer.php';
 ?>

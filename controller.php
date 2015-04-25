@@ -173,17 +173,32 @@ class Functions {
     /*
 
     */
-    public static function printNewestItems($is_active = 'active', $first_inactive = true){
+    public static function printNewestItems($is_active = 'active', $first_inactive = true, $custom_for_user = 0){
 
         $logged = 0;
+        $delete_button = '';
         if(isset($_SESSION['isLogged']) && $_SESSION['isLogged'] == true) {
             $logged = 1;
+            if (fSession::get('current_user_id') == $custom_for_user) {
+                $delete_button = '<i class="glyphicon glyphicon-remove-circle remove_item_from_profile"></i>';
+            }
+
         }
 
-        $result = '';
+        if ($is_active == 'active') {
+            # code...
+            $result = '<div class="item active">';
+        } else {
+            $result = '<div class="item">';
+        }
         $first = true;
+        $user_SQL = '';
+        $has_results = false;
+        if ($custom_for_user) {
+            $user_SQL = " WHERE user_id=" . $custom_for_user . " ";
+        }
 
-        $items = fRecordSet::buildFromSQL('Item', 'SELECT items.* FROM items ORDER BY created ASC');
+        $items = fRecordSet::buildFromSQL('Item', "SELECT items.* FROM items " . $user_SQL . " ORDER BY created ASC");
 
         foreach ($items as $key => $item) {
 
@@ -202,12 +217,13 @@ class Functions {
                     continue;
                 }
             }
-
+            $has_results = true;
             $images = explode('@', $item->getImages());
             $result .= '
               <div class="col-sm-4">
                 <div class="product-image-wrapper">
-                  <div class="single-products">
+                  <div data-id="' . $item->getId() . '" class="single-products">
+                    ' . $delete_button . '  
                     <div class="productinfo text-center" data-item_id="' . $item->getId() . '">
                       <div class="item_img_holder">
                         <img src="' . $images[0] . '" alt="" />
@@ -221,7 +237,11 @@ class Functions {
               </div>';
         }
 
-        return $result;
+        if ($has_results) {
+            return $result . '</div>';
+        } else {
+            return '';
+        }
     }
 
     public static function getOrders($return_type = 'send', $is_sum = false){

@@ -23,15 +23,9 @@
         
         <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
-            <div class="item active"> 
               <?php echo Functions::printNewestItems('active', false);?>
-            </div>
-            <div class="item">  
               <?php echo Functions::printNewestItems('inactive', true);?>
-            </div>
-            <div class="item">  
               <?php echo Functions::printNewestItems('inactive', false);?>
-            </div>
           </div>
           
            <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">

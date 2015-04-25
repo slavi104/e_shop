@@ -241,6 +241,7 @@ td#card_total {
 	background-color: #f9f9f9;
 	min-height: 522px;
 	margin-bottom: 20px;
+	height: 100%
 }
 .hidden
 {
@@ -1053,4 +1054,15 @@ td.remove_item:hover{
   position: absolute;
   bottom: 0;
   left: 0;
+}
+
+.remove_item_from_profile {
+  font-size: 24px;
+  z-index: 100;
+  color: red;
+  background: white;
+  position: absolute !important;
+  right: 0;
+  top: 0 !important;
+  cursor: pointer;
 }
