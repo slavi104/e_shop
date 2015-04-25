@@ -122,6 +122,7 @@
                   echo '<span class="span1"><a class="header_a" href="'.$root.'profile.php"> Профил </a></span>';
                   echo '<span class="span1"><a class="header_a" href="'.$root.'logout.php">'.$logout.'</a></span>';
                   echo '<span class="span1"><a class="header_a" href="'.$root.'card.php"><i class="glyphicon glyphicon-shopping-cart"></i>&nbsp; Количка</a></span>';
+                  echo '<span class="span1"><a class="header_a" href="'.$root.'orders.php">Поръчки</a></span>';
                   echo '</div>';
 
               } else {
@@ -276,10 +277,3 @@
               </ul>
             </div>
             <div class="span8 pull-right" id="wrapper1">
-        
-
-        
-        
-
-
-        

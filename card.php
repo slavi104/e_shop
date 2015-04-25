@@ -113,7 +113,8 @@ $(document).ready(function() {
     }).done(function(data){
 
         if (data == 1) {
-          alert('Промените бяха записани успешно!');
+          window.location.href = "orders.php";
+          //alert('Промените бяха записани успешно!');
         } else {
           alert('Възникна грешка при записването. Моля опитайте отново!');
         };
@@ -146,7 +147,8 @@ $(document).ready(function() {
     }).done(function(data){
 
         if (data == 1) {
-          alert('Промените бяха записани успешно!');
+          window.location.href = "orders.php";
+          //alert('Промените бяха записани успешно!');
         } else {
           alert('Възникна грешка при записването. Моля опитайте отново!');
         };

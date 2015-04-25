@@ -224,6 +224,75 @@ class Functions {
         return $result;
     }
 
+    public static function getOrders($return_type = 'send', $is_sum = false){
+
+        if ($return_type == 'send') {
+            $items_SQL = "";
+            $orders_SQL = " AND orders.buyer=" . fSession::get('current_user_id');
+        } else {
+            $items_SQL = " WHERE items.user_id=" . fSession::get('current_user_id');
+            $orders_SQL = "";
+        }
+
+        $items = fRecordSet::buildFromSQL(
+            'Item', 
+            "SELECT items.* 
+            FROM items 
+            " . $items_SQL . "
+            ORDER BY items.created ASC"
+        );
+
+        $result = '';
+        $sum    = 0;
+        
+        foreach ($items as $item) {
+
+            $orders = fRecordSet::buildFromSQL(
+                'Order', 
+                "SELECT orders.* 
+                FROM orders 
+                WHERE orders.item=" . $item->getId() . $orders_SQL
+            );
+
+            foreach ($orders as $order) {
+
+                $number = (int)$order->getQuantity();
+                $current_sum = $number * (float)$item->getPrice();
+                $sum += $current_sum;
+
+                $images = explode('@', $item->getImages());
+                $result .= '
+                <tr class="card_item_row" data-item_id="' . $item->getId() . '">
+                    <td>
+                        <img width="100px" src="' . $images[0] . '" alt="" />
+                    </td>
+                    <td>
+                        <p>' . $item->getName() . '</p>
+                    </td>
+                    <td>
+                        <h4>' . $item->getPrice() . $item->getCurrency() . '</h4>
+                    </td>
+                    <td class="item_number" data-item_id="' . $item->getId() . '" data-currency="' . $item->getCurrency() . '" data-number="' . $number . '" data-price_item="' . $item->getPrice() . '" data-total="' . $number*$item->getPrice() . '">
+                       <h4>' . $number . 'бр.</h4>
+                    </td>
+                    <td>
+                        <h4 class="item_total">' . $number*$item->getPrice() . $item->getCurrency() . '</h4>
+                    </td>
+                    <td class="remove_item" title="Изтрий от количката!">
+                       
+                    </td>
+                </tr>';
+
+            }
+
+        }
+        if ($is_sum) {
+            return $sum;
+        } else {
+            return $result;
+        }
+    }
+
 
     /*
 

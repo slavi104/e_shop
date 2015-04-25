@@ -14,15 +14,17 @@ if ($_POST) {
             $order->setInfo($info);
             $order->store();
 
-            $user = fSession::get('current_user');
-            fSession::set('card', array());
-            $user->setCardItems(json_encode(array()));
-            $user->store();
+            // $user = $_SESSION['current_user'];
+            // var_dump($user);
+            
+            // $user->setCardItems(json_encode(array()));
+            // $user->store();
 
         } catch (Exception $e) {
             echo $e->getMessage();
         }
     }
+    fSession::set('card', array());
     echo 1;
 }
 ?>
