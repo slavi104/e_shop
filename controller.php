@@ -32,6 +32,11 @@ class Category extends fActiveRecord{
 
 }
 
+class Question extends fActiveRecord{
+
+
+}
+
 
 class Functions {
 

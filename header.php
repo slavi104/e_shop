@@ -271,6 +271,11 @@
                         <h4 class="panel-title"><a href="categories.php">Категории</a></h4>
                       </div>
                     </div>
+                    <div class="panel panel-default panel_css_fix">
+                      <div class="panel-heading">
+                        <h4 class="panel-title"><a href="questions.php">Въпроси/Препоръки</a></h4>
+                      </div>
+                    </div>
                   </div><!--/category-products-->
                 </li>
                 <?php } ?>

@@ -8,6 +8,13 @@ body, header, h1, h2, h3, footer, section, article, nav, ul, ol, table, div, p, 
 	
 }
 
+.ask-question-button {
+  color: #017391 !important;
+  margin-right: 94px;
+  left: -23px;
+  position: relative;
+  border: 1px solid #017391 !important;
+}
 
 body {
 	color: #4d4d4d;
