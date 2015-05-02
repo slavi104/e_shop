@@ -12,7 +12,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
 } else {
     define(DB, 'cashtrac_e_shop');
     define(DB_USER, 'cashtrac');
-    define(DB_PSWD, 'txj)3vTA#W9G');
+    define(DB_PSWD, 'philips170v');
     define(PATH_APP, "");
 }
 
