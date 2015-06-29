@@ -3,7 +3,7 @@ require_once "controller.php";
 
 if ($_POST) {
 
-    print_r($_POST);
+    // print_r($_POST);
     try {
 
         if ($_POST['edit_category_id']) {
